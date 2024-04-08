@@ -1,5 +1,6 @@
 package es.rlujancreations.habitsapppro.onboarding.presentation.components
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -12,7 +13,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -20,6 +25,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -27,33 +33,31 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.google.accompanist.pager.ExperimentalPagerApi
-import com.google.accompanist.pager.HorizontalPager
-import com.google.accompanist.pager.HorizontalPagerIndicator
-import com.google.accompanist.pager.rememberPagerState
 import es.rlujancreations.habitsapppro.R
 import es.rlujancreations.habitsapppro.core.presentation.HabitButton
 import es.rlujancreations.habitsapppro.core.presentation.HabitTitle
 import es.rlujancreations.habitsapppro.onboarding.presentation.OnboardingPagerInformation
 import kotlinx.coroutines.launch
+import kotlin.math.absoluteValue
 
 /**
  * Created by Raúl L.C. on 6/4/24.
  */
 
-@ExperimentalPagerApi
+@ExperimentalFoundationApi
 @Composable
 fun OnboardingPager(
     pages: List<OnboardingPagerInformation>,
     onFinish: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val pagerState = rememberPagerState()
+    val pagerState = rememberPagerState { pages.size }
     val coroutineScope = rememberCoroutineScope()
 
     Box(modifier = modifier.background(color = Color.White)) {
-        HorizontalPager(count = pages.size, state = pagerState) { index ->
+        HorizontalPager(state = pagerState) { index ->
             val information = pages[index]
 
             Column(
@@ -104,7 +108,10 @@ fun OnboardingPager(
                     )
                 }
                 HorizontalPagerIndicator(
-                    pagerState = pagerState,
+                    pageCount = pages.size,
+                    currentPage = pagerState.currentPage,
+                    targetPage = pagerState.targetPage,
+                    currentPageOffsetFraction = pagerState.currentPageOffsetFraction,
                     activeColor = MaterialTheme.colorScheme.tertiary,
                     inactiveColor = MaterialTheme.colorScheme.primary
                 )
@@ -120,6 +127,62 @@ fun OnboardingPager(
                 }
             }
         }
+    }
+}
 
+@Composable
+private fun HorizontalPagerIndicator(
+    pageCount: Int,
+    currentPage: Int,
+    targetPage: Int,
+    currentPageOffsetFraction: Float,
+    modifier: Modifier = Modifier,
+    activeColor: Color = Color.DarkGray,
+    inactiveColor: Color = activeColor.copy(alpha = 0.1f),
+    unselectedIndicatorSize: Dp = 8.dp,
+    selectedIndicatorSize: Dp = 10.dp,
+    indicatorCornerRadius: Dp = 2.dp,
+    indicatorPadding: Dp = 2.dp
+) {
+    Row(
+        horizontalArrangement = Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = modifier
+            .wrapContentSize()
+            .height(selectedIndicatorSize + indicatorPadding * 2)
+    ) {
+
+        // draw an indicator for each page
+        repeat(pageCount) { page ->
+            // calculate color and size of the indicator
+            val (color, size) =
+                if (currentPage == page || targetPage == page) {
+                    // calculate page offset
+                    val pageOffset =
+                        ((currentPage - page) + currentPageOffsetFraction).absoluteValue
+                    // calculate offset percentage between 0.0 and 1.0
+                    val offsetPercentage = 1f - pageOffset.coerceIn(0f, 1f)
+
+                    val size =
+                        unselectedIndicatorSize + ((selectedIndicatorSize - unselectedIndicatorSize) * offsetPercentage)
+
+                    activeColor.copy(alpha = offsetPercentage) to size
+                } else {
+                    inactiveColor to unselectedIndicatorSize
+                }
+
+            // draw indicator
+            Box(
+                modifier = Modifier
+                    .padding(
+                        horizontal = ((selectedIndicatorSize + indicatorPadding * 2) - size) / 2,
+                        vertical = size / 4
+                    )
+                    .clip(RoundedCornerShape(indicatorCornerRadius))
+                    .background(color)
+                    .width(size)
+                    .height(size / 2)
+            )
+        }
     }
 }

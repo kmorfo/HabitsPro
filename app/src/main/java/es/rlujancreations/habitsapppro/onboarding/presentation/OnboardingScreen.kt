@@ -1,17 +1,17 @@
 package es.rlujancreations.habitsapppro.onboarding.presentation
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.google.accompanist.pager.ExperimentalPagerApi
-import dagger.hilt.android.lifecycle.HiltViewModel
 import es.rlujancreations.habitsapppro.R
 import es.rlujancreations.habitsapppro.onboarding.presentation.components.OnboardingPager
 
 /**
  * Created by Raúl L.C. on 6/4/24.
  */
-@ExperimentalPagerApi
+
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun OnboardingScreen(
     viewModel: OnboardingViewModel = hiltViewModel(),

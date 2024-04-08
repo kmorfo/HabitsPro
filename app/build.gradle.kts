@@ -68,7 +68,7 @@ dependencies {
     implementation("com.maxkeppeler.sheets-compose-dialogs:core:$timePicker")
     implementation("com.maxkeppeler.sheets-compose-dialogs:clock:$timePicker")
 
-    val composeVersion = "1.6.4"
+    val composeVersion = "1.6.5"
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     implementation("androidx.activity:activity-compose:1.8.2")
@@ -101,8 +101,8 @@ dependencies {
 
     // Pager
     val accompanistVersion = "0.28.0"
-    implementation("com.google.accompanist:accompanist-pager:$accompanistVersion")
-    implementation("com.google.accompanist:accompanist-pager-indicators:$accompanistVersion")
+//    implementation("com.google.accompanist:accompanist-pager:$accompanistVersion")
+//    implementation("com.google.accompanist:accompanist-pager-indicators:$accompanistVersion")
 
     // Permissions
     implementation("com.google.accompanist:accompanist-permissions:$accompanistVersion")
@@ -126,7 +126,7 @@ dependencies {
 
     // Testing
     testImplementation("junit:junit:4.13.2")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$composeVersion")

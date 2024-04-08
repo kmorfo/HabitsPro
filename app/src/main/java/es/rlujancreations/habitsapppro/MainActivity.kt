@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalPagerApi::class)
-
 package es.rlujancreations.habitsapppro
 
 import android.os.Bundle
@@ -11,7 +9,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.google.accompanist.pager.ExperimentalPagerApi
 import dagger.hilt.android.AndroidEntryPoint
 import es.rlujancreations.habitsapppro.navigation.NavigationHost
 import es.rlujancreations.habitsapppro.navigation.NavigationRoute
