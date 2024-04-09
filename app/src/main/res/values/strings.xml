@@ -14,5 +14,20 @@
     <string name="onboarding_title4">Join a supportive community</string>
     <string name="onboarding_subtitle4">We can help you to be a better version of yourself.</string>
 
+    <!-- LoginScreen text -->
+    <string name="cdLoginBackground">Login Background</string>
+    <string name="loginTitle">Welcome to Monumental Habits</string>
+    <string name="loginFormTitle">Log in with Email</string>
+    <string name="valueEmail">Email</string>
+    <string name="cdEmail">Enter Email</string>
+    <string name="valuePassword">Password</string>
+    <string name="cdPassword">Enter Password</string>
+    <string name="login">Login</string>
+    <string name="forgotPassword">Forgot Password?</string>
+    <string name="createAccount">"Don't have an account? "</string>
+    <string name="register">"Sign up"</string>
+
+    <string name="show">Show</string>
+    <string name="hide">Hide</string>
 
 </resources>
