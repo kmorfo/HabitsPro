@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import es.rlujancreations.habitsapppro.authentication.presentation.login.LoginScreen
+import es.rlujancreations.habitsapppro.authentication.presentation.signup.SignUpScreen
 import es.rlujancreations.habitsapppro.onboarding.presentation.OnboardingScreen
 
 /**
@@ -27,7 +28,31 @@ fun NavigationHost(
             )
         }
         composable(NavigationRoute.Login.route) {
-           LoginScreen()
+            LoginScreen(
+                onLogin = {
+                    navHostController.popBackStack()
+                    navHostController.navigate(NavigationRoute.Home.route)
+                },
+                onSignUp = {
+                    navHostController.navigate(NavigationRoute.SignUp.route)
+                }
+            )
+        }
+        composable(NavigationRoute.SignUp.route) {
+            SignUpScreen(
+                onSignIn = {
+                    //delete all BackStack routes
+                    navHostController.navigate(NavigationRoute.Home.route) {
+                        popUpTo(navHostController.graph.id) {
+                            inclusive = true
+                        }
+                    }
+                },
+                onLogin = { navHostController.popBackStack() }
+            )
+        }
+        composable(NavigationRoute.Home.route) {
+            Text(text = "Esta es la Home")
         }
     }
 }

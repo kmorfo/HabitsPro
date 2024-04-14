@@ -14,7 +14,7 @@
     <string name="onboarding_title4">Join a supportive community</string>
     <string name="onboarding_subtitle4">We can help you to be a better version of yourself.</string>
 
-    <!-- LoginScreen text -->
+    <!-- LoginScreen texts -->
     <string name="cdLoginBackground">Login Background</string>
     <string name="loginTitle">Welcome to Monumental Habits</string>
     <string name="loginFormTitle">Log in with Email</string>
@@ -27,7 +27,22 @@
     <string name="createAccount">"Don't have an account? "</string>
     <string name="register">"Sign up"</string>
 
+    <!--    SignUpScreen texts-->
+    <string name="cdSignUpBackground">SignUp backgroun image</string>
+    <string name="signUpTitle">Create your account</string>
+    <string name="createAccountBtn">Create account</string>
+    <string name="alReadyHaveAccount">Aldeady have an account?</string>
+    <string name="signIn">Sign In</string>
+
+
     <string name="show">Show</string>
     <string name="hide">Hide</string>
+
+    <!--    Validation Errors-->
+    <string name="sortPassword">Password must be more than 8 characters</string>
+    <string name="allUppercasePassword">The password must have at least one lowercase character</string>
+    <string name="allLowercasePassword">The password must have at least one uppercase character</string>
+    <string name="allcharactersPassword">The password must have at least one digit</string>
+    <string name="emailError">Email not valid</string>
 
 </resources>

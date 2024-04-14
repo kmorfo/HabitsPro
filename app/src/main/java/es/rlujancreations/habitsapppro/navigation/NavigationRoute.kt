@@ -6,4 +6,6 @@ package es.rlujancreations.habitsapppro.navigation
 sealed class NavigationRoute(val route:String) {
     object  Onboarding:NavigationRoute("onBoarding")
     object  Login:NavigationRoute("login")
+    object  Home:NavigationRoute("home")
+    object SignUp:NavigationRoute("signUp")
 }
