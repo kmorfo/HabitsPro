@@ -5,11 +5,9 @@ package es.rlujancreations.habitsapppro.home.presentarion.home
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -26,17 +24,22 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import es.rlujancreations.habitsapppro.R
 import es.rlujancreations.habitsapppro.home.presentarion.home.components.HomeDateSelector
 import es.rlujancreations.habitsapppro.home.presentarion.home.components.HomeQuote
-import java.time.ZonedDateTime
 
 /**
  * Created by Raúl L.C. on 15/4/24.
  */
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    viewModel: HomeViewModel = hiltViewModel()
+) {
+
+    val state = viewModel.state
+
     Scaffold(modifier = Modifier.fillMaxSize(), topBar = {
         CenterAlignedTopAppBar(title = {
             Text(text = "Home")
@@ -52,7 +55,7 @@ fun HomeScreen() {
         Column(
             modifier = Modifier
                 .padding(it)
-                .padding(20.dp)
+                .padding(20.dp), verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             HomeQuote(
                 quote = R.string.quoteText,
@@ -60,9 +63,7 @@ fun HomeScreen() {
                 imageId = R.drawable.onboarding1
             )
             Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 16.dp),
+                modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically,
             ) {
@@ -73,11 +74,12 @@ fun HomeScreen() {
                     color = MaterialTheme.colorScheme.tertiary
                 )
                 HomeDateSelector(
-                    selectedDate = ZonedDateTime.now(),
-                    mainDate = ZonedDateTime.now(),
-                    onDateClick = {}, datesToShow = 3
+                    selectedDate = state.selectedDate,
+                    mainDate = state.currentDate,
+                    onDateClick = { viewModel.onEvent(HomeEvent.ChangeDate(it)) }, datesToShow = 3
                 )
             }
+            Text(text = "Listado de Habitos")
         }
     }
 }
