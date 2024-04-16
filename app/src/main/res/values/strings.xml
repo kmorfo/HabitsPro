@@ -40,6 +40,9 @@
     <string name="quoteAuthor">Anonymous</string>
     <string name="cdHomeQuote">Inspirational quote image</string>
     <string name="habits">Habits</string>
+    <string name="cdCheckedCheckbox">Checkbox Checked</string>
+    <string name="cdCUncheckedCheckbox">Checkbox Unchecked</string>
+
 
     <string name="show">Show</string>
     <string name="hide">Hide</string>
