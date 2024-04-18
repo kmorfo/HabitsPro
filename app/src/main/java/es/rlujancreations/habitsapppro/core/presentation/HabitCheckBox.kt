@@ -34,14 +34,15 @@ fun HabitCheckBox(
 ) {
     val backgroundColor =
         if (isChecked) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.background
+    val border = if (isChecked)
+        BorderStroke(1.dp, color = MaterialTheme.colorScheme.tertiary)
+    else
+        BorderStroke(0.dp, Color.Transparent)
     Box(
         modifier = modifier
             .size(35.dp)
             .clip(RoundedCornerShape(12.dp))
-            .border(
-                BorderStroke(1.dp, color = MaterialTheme.colorScheme.tertiary),
-                RoundedCornerShape(12.dp)
-            )
+            .border(border, RoundedCornerShape(12.dp))
             .background(color = backgroundColor)
             .clickable { onCheckedChange() },
         contentAlignment = Alignment.Center

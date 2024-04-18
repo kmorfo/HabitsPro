@@ -42,6 +42,14 @@
     <string name="habits">Habits</string>
     <string name="cdCheckedCheckbox">Checkbox Checked</string>
     <string name="cdCUncheckedCheckbox">Checkbox Unchecked</string>
+    <string name="createHabit">Create Habit</string>
+
+    <!--    Detail Screen-->
+    <string name="newHabitTitle">New Habit</string>
+    <string name="cdBack">Back to Home</string>
+    <string name="newHabitTextFieldPlaceHolder">Enter habit name</string>
+    <string name="cdNewHabitTextField">Enter habit name</string>
+    <string name="frequency">Frequency</string>
 
 
     <string name="show">Show</string>
@@ -53,5 +61,6 @@
     <string name="allLowercasePassword">The password must have at least one uppercase character</string>
     <string name="allcharactersPassword">The password must have at least one digit</string>
     <string name="emailError">Email not valid</string>
+    <string name="homeScreenTitle">Home</string>
 
 </resources>

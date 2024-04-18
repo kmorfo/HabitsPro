@@ -2,9 +2,7 @@
 
 package es.rlujancreations.habitsapppro.home.presentarion.home
 
-import android.content.ClipData.Item
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,10 +10,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -40,22 +41,39 @@ import es.rlujancreations.habitsapppro.home.presentarion.home.components.HomeQuo
 
 @Composable
 fun HomeScreen(
+    onNewHabit: () -> Unit,
+    onSettings: () -> Unit,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
 
     val state = viewModel.state
 
     Scaffold(modifier = Modifier.fillMaxSize(), topBar = {
-        CenterAlignedTopAppBar(title = {
-            Text(text = "Home")
-        }, navigationIcon = {
-            IconButton(onClick = { /*TODO*/ }) {
-                Icon(
-                    imageVector = Icons.Default.Settings,
-                    contentDescription = stringResource(id = R.string.cdSettings)
-                )
-            }
-        })
+        CenterAlignedTopAppBar(
+            title = {
+                Text(text = stringResource(R.string.homeScreenTitle))
+            },
+            navigationIcon = {
+                IconButton(onClick = onSettings) {
+                    Icon(
+                        imageVector = Icons.Default.Settings,
+                        contentDescription = stringResource(id = R.string.cdSettings)
+                    )
+                }
+            },
+        )
+    }, floatingActionButton = {
+        FloatingActionButton(
+            onClick = onNewHabit,
+            containerColor = MaterialTheme.colorScheme.primary,
+//            shape = CircleShape
+        ) {
+            Icon(
+                imageVector = Icons.Default.Add,
+                contentDescription = stringResource(id = R.string.createHabit),
+                tint = MaterialTheme.colorScheme.tertiary
+            )
+        }
     }) {
         LazyColumn(
             modifier = Modifier

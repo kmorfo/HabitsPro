@@ -8,4 +8,6 @@ sealed class NavigationRoute(val route:String) {
     object  Login:NavigationRoute("login")
     object  Home:NavigationRoute("home")
     object SignUp:NavigationRoute("signUp")
+    object Detail:NavigationRoute("detail")
+    object Settings:NavigationRoute("settings")
 }
