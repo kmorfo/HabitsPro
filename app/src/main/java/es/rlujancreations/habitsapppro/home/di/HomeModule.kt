@@ -5,6 +5,9 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import es.rlujancreations.habitsapppro.home.data.repository.HomeRepositoryImpl
+import es.rlujancreations.habitsapppro.home.domain.detail.usecases.DetailUseCases
+import es.rlujancreations.habitsapppro.home.domain.detail.usecases.GetHabitByIdUseCase
+import es.rlujancreations.habitsapppro.home.domain.detail.usecases.InsertHabitUseCase
 import es.rlujancreations.habitsapppro.home.domain.home.usecases.CompleteHabitUseCase
 import es.rlujancreations.habitsapppro.home.domain.home.usecases.GetAllHabitsForDateUseCase
 import es.rlujancreations.habitsapppro.home.domain.home.usecases.HomeUseCases
@@ -24,6 +27,16 @@ object HomeModule {
         return HomeUseCases(
             completeHabitUseCase = CompleteHabitUseCase(repository),
             getAllHabitsForDateUseCase = GetAllHabitsForDateUseCase(repository)
+        )
+    }
+
+
+    @Singleton
+    @Provides
+    fun provideDetailUseCases(repository: HomeRepository): DetailUseCases {
+        return DetailUseCases(
+            getHabitByIdUseCase = GetHabitByIdUseCase(repository),
+            insertHabitUseCase = InsertHabitUseCase(repository)
         )
     }
 

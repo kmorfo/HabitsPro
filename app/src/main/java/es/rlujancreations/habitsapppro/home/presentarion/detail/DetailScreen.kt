@@ -1,6 +1,5 @@
 package es.rlujancreations.habitsapppro.home.presentarion.detail
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,10 +9,13 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,7 +26,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.maxkeppeker.sheets.core.models.base.rememberSheetState
 import com.maxkeppeler.sheets.clock.ClockDialog
 import com.maxkeppeler.sheets.clock.models.ClockConfig
 import com.maxkeppeler.sheets.clock.models.ClockSelection
@@ -69,13 +70,25 @@ fun DetailScreen(
         CenterAlignedTopAppBar(title = {
             Text(text = stringResource(R.string.newHabitTitle))
         }, navigationIcon = {
-            IconButton(onClick = { /*TODO*/ }) {
+            IconButton(onClick = onBack) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                     contentDescription = stringResource(id = R.string.cdBack)
                 )
             }
         })
+    }, floatingActionButton = {
+        FloatingActionButton(
+            onClick = { viewModel.onEvent(DetailEvent.HabitSave) },
+            containerColor = MaterialTheme.colorScheme.primary,
+//            shape = CircleShape
+        ) {
+            Icon(
+                imageVector = Icons.Default.Check,
+                contentDescription = stringResource(id = R.string.saveHabit),
+                tint = MaterialTheme.colorScheme.tertiary
+            )
+        }
     }) {
         Column(
             modifier = Modifier
@@ -100,5 +113,3 @@ fun DetailScreen(
         }
     }
 }
-
-//21:38

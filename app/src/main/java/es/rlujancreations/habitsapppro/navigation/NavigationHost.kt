@@ -3,8 +3,10 @@ package es.rlujancreations.habitsapppro.navigation
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import es.rlujancreations.habitsapppro.authentication.presentation.login.LoginScreen
 import es.rlujancreations.habitsapppro.authentication.presentation.signup.SignUpScreen
 import es.rlujancreations.habitsapppro.home.presentarion.detail.DetailScreen
@@ -56,10 +58,18 @@ fun NavigationHost(
         composable(NavigationRoute.Home.route) {
             HomeScreen(
                 onNewHabit = { navHostController.navigate(NavigationRoute.Detail.route) },
-                onSettings = { navHostController.navigate(NavigationRoute.Settings.route) }
+                onSettings = { navHostController.navigate(NavigationRoute.Settings.route) },
+                onEditHabit = { navHostController.navigate(NavigationRoute.Detail.route + "?habitId=$it") }
             )
         }
-        composable(NavigationRoute.Detail.route) {
+        composable(
+            NavigationRoute.Detail.route + "?habitId={habitId}",
+            arguments = listOf(navArgument("habitId") {
+                type = NavType.StringType
+                nullable = true
+                defaultValue = null
+            })
+        ) {
             DetailScreen(
                 onBack = { navHostController.popBackStack() },
                 onSave = { navHostController.popBackStack() }

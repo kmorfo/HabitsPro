@@ -43,6 +43,7 @@
     <string name="cdCheckedCheckbox">Checkbox Checked</string>
     <string name="cdCUncheckedCheckbox">Checkbox Unchecked</string>
     <string name="createHabit">Create Habit</string>
+    <string name="saveHabit">Save Habit</string>
 
     <!--    Detail Screen-->
     <string name="newHabitTitle">New Habit</string>

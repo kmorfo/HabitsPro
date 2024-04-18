@@ -43,6 +43,7 @@ import es.rlujancreations.habitsapppro.home.presentarion.home.components.HomeQuo
 fun HomeScreen(
     onNewHabit: () -> Unit,
     onSettings: () -> Unit,
+    onEditHabit: (String) -> Unit,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
 
@@ -116,7 +117,7 @@ fun HomeScreen(
                     habit = it,
                     selectedDate = state.selectedDate.toLocalDate(),
                     onCheckedChange = { viewModel.onEvent(HomeEvent.CompleteHabit(it)) },
-                    onHabitClick = {}
+                    onHabitClick = { onEditHabit(it.id) }
                 )
             }
         }
