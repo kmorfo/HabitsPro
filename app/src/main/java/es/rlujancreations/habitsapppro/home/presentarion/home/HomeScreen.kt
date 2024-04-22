@@ -2,6 +2,7 @@
 
 package es.rlujancreations.habitsapppro.home.presentarion.home
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -25,6 +26,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -91,24 +93,26 @@ fun HomeScreen(
                 )
             }
             item {
+                Text(
+                    text = stringResource(id = R.string.habits).uppercase(),
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.tertiary
+                )
+            }
+            item {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(end = 20.dp),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    Text(
-                        text = stringResource(id = R.string.habits).uppercase(),
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.tertiary
-                    )
                     HomeDateSelector(
                         selectedDate = state.selectedDate,
                         mainDate = state.currentDate,
                         onDateClick = { viewModel.onEvent(HomeEvent.ChangeDate(it)) },
-                        datesToShow = 4
+                        datesToShow = 5
                     )
                 }
             }
