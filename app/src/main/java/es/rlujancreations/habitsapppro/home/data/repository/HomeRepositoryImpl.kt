@@ -1,46 +1,32 @@
 package es.rlujancreations.habitsapppro.home.data.repository
 
+import es.rlujancreations.habitsapppro.home.data.extension.toStartOfDateTimestamp
+import es.rlujancreations.habitsapppro.home.data.local.HomeDao
+import es.rlujancreations.habitsapppro.home.data.mapper.toDomain
+import es.rlujancreations.habitsapppro.home.data.mapper.toEntity
 import es.rlujancreations.habitsapppro.home.domain.models.Habit
 import es.rlujancreations.habitsapppro.home.domain.repository.HomeRepository
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
-import java.time.LocalDate
-import java.time.LocalTime
+import kotlinx.coroutines.flow.map
 import java.time.ZonedDateTime
 
 /**
  * Created by Raúl L.C. on 17/4/24.
  */
-class HomeRepositoryImpl() : HomeRepository {
-
-    private val mockHabits = (1..30).map {
-        val dates = mutableListOf<LocalDate>()
-        if (it % 2 == 0) dates.add(LocalDate.now())
-        Habit(
-            id = it.toString(),
-            name = "Habit $it",
-            frequency = listOf(),
-            completedDates = dates,
-            reminder = LocalTime.now(),
-            startDate = ZonedDateTime.now()
-        )
-    }.toMutableList()
+class HomeRepositoryImpl(
+    private val dao: HomeDao
+) : HomeRepository {
 
     override fun getAllHabitsForSelectedDate(date: ZonedDateTime): Flow<List<Habit>> {
-        return flowOf(mockHabits)
+        return dao.getAllHabitsForSelectedDate(date.toStartOfDateTimestamp())
+            .map { it.map { it.toDomain() } }
     }
 
     override suspend fun insertHabit(habit: Habit) {
-        val index = mockHabits.indexOfFirst { it.id == habit.id }
-        if (index == -1) {
-            mockHabits.add(habit)
-        } else {
-            mockHabits.removeAt(index)
-            mockHabits.add(index, habit)
-        }
+        dao.insertHabit(habit.toEntity())
     }
 
     override suspend fun getHabitById(id: String): Habit {
-        return mockHabits.first { it.id == id }
+        return dao.getHabitById(id).toDomain()
     }
 }

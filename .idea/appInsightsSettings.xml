@@ -8,7 +8,7 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="es.rlujancreations.mis_wifis" />
+                  <option name="appId" value="es.rlujancreations.registrohorario" />
                 </ConnectionSetting>
               </option>
               <option name="failureTypes">
