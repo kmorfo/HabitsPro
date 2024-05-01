@@ -10,6 +10,7 @@ import androidx.room.PrimaryKey
 data class HabitEntity(
     @PrimaryKey(autoGenerate = false)
     val id: String,
+    val userId: String,
     val name: String,
     val frequency: List<Int>,
     val completedDates: List<Long>,

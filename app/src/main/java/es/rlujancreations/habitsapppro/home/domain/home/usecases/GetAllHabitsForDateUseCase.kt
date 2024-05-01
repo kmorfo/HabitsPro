@@ -12,8 +12,8 @@ import java.time.ZonedDateTime
  * Created by Raúl L.C. on 17/4/24.
  */
 class GetAllHabitsForDateUseCase(private val repository: HomeRepository) {
-    operator fun invoke(date: ZonedDateTime): Flow<List<Habit>> {
-        return repository.getAllHabitsForSelectedDate(date).distinctUntilChanged().map {
+    operator fun invoke(date: ZonedDateTime, userId: String): Flow<List<Habit>> {
+        return repository.getAllHabitsForSelectedDate(date, userId).distinctUntilChanged().map {
             it.filter { it.frequency.contains(date.dayOfWeek) }
         }
     }
