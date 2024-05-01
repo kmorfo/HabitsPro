@@ -10,6 +10,7 @@ import java.time.ZonedDateTime
  */
 data class Habit(
     val id: String,
+    val userId: String,
     val name: String,
     val frequency: List<DayOfWeek>,
     val completedDates: List<LocalDate>,

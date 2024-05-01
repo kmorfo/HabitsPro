@@ -26,19 +26,22 @@ class HomeRepositoryImpl(
     private val alarmHandler: AlarmHandler
 ) : HomeRepository {
 
-    override fun getAllHabitsForSelectedDate(date: ZonedDateTime): Flow<List<Habit>> {
-        val localFlow = dao.getAllHabitsForSelectedDate(date.toStartOfDateTimestamp())
+    override fun getAllHabitsForSelectedDate(
+        date: ZonedDateTime,
+        userId: String
+    ): Flow<List<Habit>> {
+        val localFlow = dao.getAllHabitsForSelectedDate(date.toStartOfDateTimestamp(), userId)
             .map { it.map { it.toDomain() } }
 
-        val apiFlow = getHabitsFromApi()
+        val apiFlow = getHabitsFromApi(userId)
 
         return localFlow.combine(apiFlow) { db, _ -> db }
     }
 
-    private fun getHabitsFromApi(): Flow<List<Habit>> {
+    private fun getHabitsFromApi(userId: String): Flow<List<Habit>> {
         return flow {
             resultOf {
-                val habits = api.getAllHabits().toDomain()
+                val habits = api.getAllHabitsByUserId(userId = userId).toDomain()
                 insertHabits(habits)
             }
 

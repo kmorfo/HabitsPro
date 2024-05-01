@@ -6,6 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import es.rlujancreations.habitsapppro.authentication.domain.usecase.GetUserIdUseCase
 import es.rlujancreations.habitsapppro.home.domain.home.usecases.HomeUseCases
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -16,9 +17,14 @@ import javax.inject.Inject
  */
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val homeUseCases: HomeUseCases) : ViewModel() {
+class HomeViewModel @Inject constructor(
+    private val homeUseCases: HomeUseCases,
+    private val getUserIdUseCase: GetUserIdUseCase
+) : ViewModel() {
     var state by mutableStateOf(HomeState())
         private set
+
+    private val userId: String = getUserIdUseCase() ?: ""
 
     init {
         getHabits()
@@ -41,7 +47,7 @@ class HomeViewModel @Inject constructor(private val homeUseCases: HomeUseCases) 
 
     private fun getHabits() {
         viewModelScope.launch {
-            homeUseCases.getAllHabitsForDateUseCase(state.selectedDate).collectLatest {
+            homeUseCases.getAllHabitsForDateUseCase(state.selectedDate,userId).collectLatest {
                 state = state.copy(habits = it)
             }
         }

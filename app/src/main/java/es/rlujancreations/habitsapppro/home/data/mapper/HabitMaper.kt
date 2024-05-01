@@ -16,6 +16,7 @@ import java.time.DayOfWeek
 fun HabitEntity.toDomain(): Habit {
     return Habit(
         id = this.id,
+        userId = this.userId,
         name = this.name,
         frequency = this.frequency.map { DayOfWeek.of(it) },
         completedDates = this.completedDates.map { it.toZonedDateTime().toLocalDate() },
@@ -27,6 +28,7 @@ fun HabitEntity.toDomain(): Habit {
 fun Habit.toEntity(): HabitEntity {
     return HabitEntity(
         id = this.id,
+        userId = this.userId,
         name = this.name,
         frequency = this.frequency.map { it.value },
         completedDates = this.completedDates.map { it.toZonedDateTime().toTimeStamp() },
@@ -41,6 +43,7 @@ fun HabitResponse.toDomain(): List<Habit> {
         val dto = it.value
         Habit(
             id = id,
+            userId = dto.userId,
             name = dto.name,
             frequency = dto.frequency.map { DayOfWeek.of(it) },
             completedDates = dto.completedDates?.map { it.toZonedDateTime().toLocalDate() }
@@ -53,6 +56,7 @@ fun HabitResponse.toDomain(): List<Habit> {
 
 fun Habit.toDto(): HabitResponse {
     val dto = HabitDto(
+        userId = this.userId,
         name = this.name,
         frequency = this.frequency.map { it.value },
         completedDates = this.completedDates.map { it.toZonedDateTime().toTimeStamp() },

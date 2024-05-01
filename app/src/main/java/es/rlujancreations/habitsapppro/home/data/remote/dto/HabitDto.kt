@@ -5,6 +5,7 @@ package es.rlujancreations.habitsapppro.home.data.remote.dto
  */
 data class HabitDto(
     val name: String,
+    val userId: String,
     val reminder: Long,
     val startDate: Long,
     val frequency: List<Int>,
