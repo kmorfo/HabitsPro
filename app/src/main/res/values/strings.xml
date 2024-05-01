@@ -64,4 +64,8 @@
     <string name="emailError">Email not valid</string>
     <string name="homeScreenTitle">Home</string>
 
+    <!--    Permissions dialog-->
+    <string name="permissionAccept">Accept</string>
+    <string name="permissionTitle">Permission Required</string>
+    <string name="permissionText">We need this mermission for the app to work correctly</string>
 </resources>

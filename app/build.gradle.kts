@@ -2,8 +2,8 @@ plugins {
     id("com.android.application")
     kotlin("android")
     id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
     id("com.google.gms.google-services")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -85,6 +85,7 @@ dependencies {
     val hiltVersion = "2.49"
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     kapt("com.google.dagger:hilt-compiler:$hiltVersion")
+
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
     kapt("androidx.hilt:hilt-compiler:1.2.0")
 
@@ -133,6 +134,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$composeVersion")
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:$hiltVersion")
+
     debugImplementation("androidx.compose.ui:ui-tooling:$composeVersion")
     debugImplementation("androidx.compose.ui:ui-test-manifest:$composeVersion")
     testImplementation("app.cash.turbine:turbine:0.7.0")
