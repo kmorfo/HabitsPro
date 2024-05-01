@@ -7,9 +7,9 @@ import es.rlujancreations.habitsapppro.home.data.mapper.toDto
 import es.rlujancreations.habitsapppro.home.data.mapper.toEntity
 import es.rlujancreations.habitsapppro.home.data.remote.HomeApi
 import es.rlujancreations.habitsapppro.home.data.remote.util.resultOf
+import es.rlujancreations.habitsapppro.home.domain.alarm.AlarmHandler
 import es.rlujancreations.habitsapppro.home.domain.models.Habit
 import es.rlujancreations.habitsapppro.home.domain.repository.HomeRepository
-import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flow
@@ -20,7 +20,11 @@ import java.time.ZonedDateTime
 /**
  * Created by Raúl L.C. on 17/4/24.
  */
-class HomeRepositoryImpl(private val dao: HomeDao, private val api: HomeApi) : HomeRepository {
+class HomeRepositoryImpl(
+    private val dao: HomeDao,
+    private val api: HomeApi,
+    private val alarmHandler: AlarmHandler
+) : HomeRepository {
 
     override fun getAllHabitsForSelectedDate(date: ZonedDateTime): Flow<List<Habit>> {
         val localFlow = dao.getAllHabitsForSelectedDate(date.toStartOfDateTimestamp())
@@ -43,6 +47,7 @@ class HomeRepositoryImpl(private val dao: HomeDao, private val api: HomeApi) : H
     }
 
     override suspend fun insertHabit(habit: Habit) {
+        handleAlarm(habit = habit)
         dao.insertHabit(habit.toEntity())
         resultOf {
             api.insertHabit(habit.toDto())
@@ -50,9 +55,20 @@ class HomeRepositoryImpl(private val dao: HomeDao, private val api: HomeApi) : H
     }
 
     private suspend fun insertHabits(habits: List<Habit>) {
-        dao.insertHabits(habits.map { it.toEntity() })
+        habits.forEach {
+            handleAlarm(it)
+            dao.insertHabit(it.toEntity())
+        }
     }
 
+    private suspend fun handleAlarm(habit: Habit) {
+        try {
+            val previous = dao.getHabitById(habit.id)
+            alarmHandler.cancel(previous.toDomain())
+        } catch (e: Exception) {/*Habit does not exist*/
+        }
+        alarmHandler.setRecurringAlarm(habit = habit)
+    }
 
     override suspend fun getHabitById(id: String): Habit {
         return dao.getHabitById(id).toDomain()

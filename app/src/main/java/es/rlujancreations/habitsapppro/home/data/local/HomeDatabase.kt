@@ -9,8 +9,8 @@ import es.rlujancreations.habitsapppro.home.data.local.typeconverter.HomeTypeCon
 /**
  * Created by Raúl L.C. on 22/4/24.
  */
-@Database(entities = [HabitEntity::class], version = 1)
+@Database(entities = [HabitEntity::class], version = 1, exportSchema = true)
 @TypeConverters(HomeTypeConverter::class)
-abstract class HomeDatabase() : RoomDatabase() {
+abstract class HomeDatabase : RoomDatabase() {
     abstract val dao: HomeDao
 }

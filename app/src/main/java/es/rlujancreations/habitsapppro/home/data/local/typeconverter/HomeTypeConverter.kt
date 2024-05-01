@@ -10,9 +10,7 @@ import com.squareup.moshi.Moshi
  * Created by Raúl L.C. on 22/4/24.
  */
 @ProvidedTypeConverter
-class HomeTypeConverter(
-    private val moshi: Moshi
-) {
+class HomeTypeConverter {
     @TypeConverter
     fun fromFrequency(days: List<Int>): String {
         return joinIntoStringKmf(days) ?: ""
