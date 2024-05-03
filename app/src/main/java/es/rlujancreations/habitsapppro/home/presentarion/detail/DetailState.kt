@@ -10,6 +10,7 @@ import java.time.ZonedDateTime
  */
 data class DetailState(
     val id: String? = null,
+    val userId: String = "",
     val habitName: String = "",
     val frequency: List<DayOfWeek> = emptyList(),
     val reminder: LocalTime = LocalTime.now(),

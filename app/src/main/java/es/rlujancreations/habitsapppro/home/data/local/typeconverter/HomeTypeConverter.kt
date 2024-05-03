@@ -1,9 +1,7 @@
 package es.rlujancreations.habitsapppro.home.data.local.typeconverter
 
-import android.util.Log
 import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
-import com.squareup.moshi.Moshi
 
 
 /**
@@ -36,7 +34,7 @@ class HomeTypeConverter {
             try {
                 item.toInt()
             } catch (ex: NumberFormatException) {
-                Log.e("ROOM", "Malformed integer list", ex)
+//                Log.e("ROOM", "Malformed integer list", ex)
                 null
             }
         }
@@ -51,7 +49,7 @@ class HomeTypeConverter {
             try {
                 item.toLong()
             } catch (ex: NumberFormatException) {
-                Log.e("ROOM", "Malformed integer list", ex)
+//                Log.e("ROOM", "Malformed integer list", ex)
                 null
             }
         }

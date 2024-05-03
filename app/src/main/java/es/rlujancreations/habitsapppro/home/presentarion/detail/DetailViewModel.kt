@@ -29,12 +29,13 @@ class DetailViewModel @Inject constructor(
     init {
         val id = savedStateHandle.get<String?>("habitId")
         userId = savedStateHandle.get<String?>("userId") ?: ""
-        println("Detail")
+        state = state.copy(userId = userId)
         if (id != null) {
             viewModelScope.launch {
                 val habit = detailUseCases.getHabitByIdUseCase(id)
                 state = state.copy(
                     id = habit.id,
+                    userId = state.userId,
                     habitName = habit.name,
                     frequency = habit.frequency,
                     reminder = habit.reminder,
@@ -59,7 +60,7 @@ class DetailViewModel @Inject constructor(
                 viewModelScope.launch {
                     val habit = Habit(
                         id = state.id ?: UUID.randomUUID().toString(),
-                        userId = userId,
+                        userId = state.userId,
                         name = state.habitName,
                         frequency = state.frequency,
                         completedDates = state.completedDates,

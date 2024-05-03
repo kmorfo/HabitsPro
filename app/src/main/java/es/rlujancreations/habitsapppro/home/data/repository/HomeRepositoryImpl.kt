@@ -41,7 +41,7 @@ class HomeRepositoryImpl(
     private fun getHabitsFromApi(userId: String): Flow<List<Habit>> {
         return flow {
             resultOf {
-                val habits = api.getAllHabitsByUserId(userId = userId).toDomain()
+                val habits = api.getAllHabitsByUserId(userId =  "\"$userId\"").toDomain()
                 insertHabits(habits)
             }
 
