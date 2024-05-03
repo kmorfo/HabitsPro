@@ -6,5 +6,6 @@ package es.rlujancreations.habitsapppro.authentication.domain.usecase
 data class SignUpUseCases(
     val signUpWithEmailUseCase: SignUpWithEmailUseCase,
     val validateEmailUseCase: ValidateEmailUseCase,
-    val validatePasswordUseCase: ValidatePasswordUseCase
+    val validatePasswordUseCase: ValidatePasswordUseCase,
+    val getUserIdUseCase: GetUserIdUseCase
 )

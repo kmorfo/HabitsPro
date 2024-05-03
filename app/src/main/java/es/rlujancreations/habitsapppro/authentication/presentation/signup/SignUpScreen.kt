@@ -22,7 +22,7 @@ import es.rlujancreations.habitsapppro.authentication.presentation.signup.compon
  */
 @Composable
 fun SignUpScreen(
-    onSignIn: () -> Unit,
+    onSignIn: (userId:String) -> Unit,
     onLogin: () -> Unit,
     viewModel: SignUpViewModel = hiltViewModel()
 ) {
@@ -30,7 +30,7 @@ fun SignUpScreen(
 
     LaunchedEffect(state.isSignedIn) {
         if (state.isSignedIn) {
-            onSignIn()
+            onSignIn(state.userId)
         }
     }
     LaunchedEffect(state.login) {

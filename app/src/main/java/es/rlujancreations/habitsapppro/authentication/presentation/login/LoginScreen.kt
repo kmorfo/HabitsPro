@@ -31,7 +31,7 @@ import es.rlujancreations.habitsapppro.core.presentation.HabitTitle
 
 @Composable
 fun LoginScreen(
-    onLogin: () -> Unit,
+    onLogin: (userId: String) -> Unit,
     onSignUp: () -> Unit,
     viewModel: LoginViewModel = hiltViewModel()
 ) {
@@ -40,7 +40,7 @@ fun LoginScreen(
 
     LaunchedEffect(state.isLoggedIn) {
         if (state.isLoggedIn) {
-            onLogin()
+            onLogin(state.userId)
         }
     }
 

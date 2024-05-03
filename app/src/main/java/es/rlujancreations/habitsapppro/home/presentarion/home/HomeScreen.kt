@@ -43,9 +43,9 @@ import es.rlujancreations.habitsapppro.home.presentarion.home.components.HomeQuo
 
 @Composable
 fun HomeScreen(
-    onNewHabit: () -> Unit,
+    onNewHabit: (userId: String) -> Unit,
     onSettings: () -> Unit,
-    onEditHabit: (String) -> Unit,
+    onEditHabit: (habitId: String, userId: String) -> Unit,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
 
@@ -67,7 +67,7 @@ fun HomeScreen(
         )
     }, floatingActionButton = {
         FloatingActionButton(
-            onClick = onNewHabit,
+            onClick = { onNewHabit(state.userId) },
             containerColor = MaterialTheme.colorScheme.primary,
 //            shape = CircleShape
         ) {
@@ -124,7 +124,7 @@ fun HomeScreen(
                     habit = it,
                     selectedDate = state.selectedDate.toLocalDate(),
                     onCheckedChange = { viewModel.onEvent(HomeEvent.CompleteHabit(it)) },
-                    onHabitClick = { onEditHabit(it.id) }
+                    onHabitClick = { onEditHabit(it.id, state.userId) }
                 )
             }
         }

@@ -21,6 +21,6 @@ class MainViewModel @Inject constructor(
     var hasSeenOnboarding by mutableStateOf(hasSeenOnboardingUseCase())
         private set
 
-    var isLoggedIn by mutableStateOf(getUserIdUseCase() != null)
+    var isLoggedIn by mutableStateOf(getUserIdUseCase() ?: "")
         private set
 }

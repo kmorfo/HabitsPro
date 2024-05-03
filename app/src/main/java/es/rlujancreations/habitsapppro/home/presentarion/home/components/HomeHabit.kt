@@ -52,6 +52,5 @@ fun HomeHabit(
         HabitCheckBox(isChecked = habit.completedDates.contains(selectedDate)) {
             onCheckedChange()
         }
-
     }
 }

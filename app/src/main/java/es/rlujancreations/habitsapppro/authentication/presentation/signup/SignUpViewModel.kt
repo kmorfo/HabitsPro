@@ -63,7 +63,8 @@ class SignUpViewModel @Inject constructor(
                     password = state.password
                 )
                     .onSuccess {
-                        state = state.copy(isSignedIn = true)
+                        val userId = signUpUseCases.getUserIdUseCase() ?: ""
+                        state = state.copy(isSignedIn = true, userId = userId)
                     }.onFailure {
                         val error = it.message
                         println("La jodimos tia paca $error")
@@ -75,8 +76,6 @@ class SignUpViewModel @Inject constructor(
             }
         }
     }
-
-
 }
 
 

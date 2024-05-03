@@ -3,10 +3,10 @@ package es.rlujancreations.habitsapppro.home.presentarion.home
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import es.rlujancreations.habitsapppro.authentication.domain.usecase.GetUserIdUseCase
 import es.rlujancreations.habitsapppro.home.domain.home.usecases.HomeUseCases
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -18,15 +18,15 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val homeUseCases: HomeUseCases,
-    private val getUserIdUseCase: GetUserIdUseCase
+    savedStateHandle: SavedStateHandle,
+    private val homeUseCases: HomeUseCases
 ) : ViewModel() {
     var state by mutableStateOf(HomeState())
         private set
 
-    private val userId: String = getUserIdUseCase() ?: ""
-
     init {
+        val userId = savedStateHandle.get<String?>("userId") ?: ""
+        state = state.copy(userId = userId)
         getHabits()
     }
 
@@ -47,9 +47,10 @@ class HomeViewModel @Inject constructor(
 
     private fun getHabits() {
         viewModelScope.launch {
-            homeUseCases.getAllHabitsForDateUseCase(state.selectedDate,userId).collectLatest {
-                state = state.copy(habits = it)
-            }
+            homeUseCases.getAllHabitsForDateUseCase(state.selectedDate, state.userId)
+                .collectLatest {
+                    state = state.copy(habits = it)
+                }
         }
     }
 }

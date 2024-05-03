@@ -7,6 +7,7 @@ import androidx.annotation.StringRes
  */
 data class LoginState(
     val email: String = "",
+    val userId: String = "",
     @StringRes val emailError: Int? = null,
     val password: String = "",
     @StringRes val passwordError: Int? = null,

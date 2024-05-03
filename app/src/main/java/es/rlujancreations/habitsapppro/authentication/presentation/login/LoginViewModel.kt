@@ -1,21 +1,14 @@
 package es.rlujancreations.habitsapppro.authentication.presentation.login
 
-import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-
 import dagger.hilt.android.lifecycle.HiltViewModel
 import es.rlujancreations.habitsapppro.R
-import es.rlujancreations.habitsapppro.authentication.domain.repository.AuthenticationRepository
 import es.rlujancreations.habitsapppro.authentication.domain.usecase.LoginUseCases
-import es.rlujancreations.habitsapppro.authentication.domain.usecase.LoginWithEmailUseCase
 import es.rlujancreations.habitsapppro.authentication.domain.usecase.PasswordResult
-import es.rlujancreations.habitsapppro.authentication.domain.usecase.ValidateEmailUseCase
-import es.rlujancreations.habitsapppro.authentication.domain.usecase.ValidatePasswordUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -61,7 +54,8 @@ class LoginViewModel @Inject constructor(
             viewModelScope.launch {
                 loginUseCases.loginWithEmailUseCase(email = state.email, password = state.password)
                     .onSuccess {
-                        state = state.copy(isLoggedIn = true)
+                        val userId = loginUseCases.getUserIdUseCase() ?: ""
+                        state = state.copy(isLoggedIn = true, userId = userId)
                     }.onFailure {
                         val error = it.message
                         println("La jodimos tia paca $error")

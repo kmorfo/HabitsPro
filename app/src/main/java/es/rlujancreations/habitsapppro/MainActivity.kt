@@ -30,7 +30,8 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     NavigationHost(
                         navHostController = navController,
-                        startDestination = getStartDestination()
+                        startDestination = getStartDestination(),
+                        userId = viewModel.isLoggedIn
                     )
                 }
             }
@@ -38,7 +39,7 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun getStartDestination(): NavigationRoute {
-        if (viewModel.isLoggedIn) return NavigationRoute.Home
+        if (viewModel.isLoggedIn.isNotBlank()) return NavigationRoute.LaunchHome
 
         return if (viewModel.hasSeenOnboarding) NavigationRoute.Login else NavigationRoute.Onboarding
     }

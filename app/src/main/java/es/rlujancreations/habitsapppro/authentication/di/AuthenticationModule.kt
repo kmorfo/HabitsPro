@@ -46,7 +46,8 @@ object AuthenticationModule {
         return LoginUseCases(
             loginWithEmailUseCase = LoginWithEmailUseCase(repository),
             validateEmailUseCase = ValidateEmailUseCase(emailMatcher),
-            validatePasswordUseCase = ValidatePasswordUseCase()
+            validatePasswordUseCase = ValidatePasswordUseCase(),
+            getUserIdUseCase = GetUserIdUseCase(repository)
         )
     }
 
@@ -59,7 +60,8 @@ object AuthenticationModule {
         return SignUpUseCases(
             signUpWithEmailUseCase = SignUpWithEmailUseCase(repository),
             validateEmailUseCase = ValidateEmailUseCase(emailMatcher),
-            validatePasswordUseCase = ValidatePasswordUseCase()
+            validatePasswordUseCase = ValidatePasswordUseCase(),
+            getUserIdUseCase = GetUserIdUseCase(repository)
         )
     }
 

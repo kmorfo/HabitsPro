@@ -2,6 +2,7 @@ package es.rlujancreations.habitsapppro.navigation
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -20,7 +21,8 @@ import es.rlujancreations.habitsapppro.onboarding.presentation.OnboardingScreen
 @Composable
 fun NavigationHost(
     navHostController: NavHostController,
-    startDestination: NavigationRoute
+    startDestination: NavigationRoute,
+    userId: String
 ) {
     NavHost(navController = navHostController, startDestination = startDestination.route) {
         composable(NavigationRoute.Onboarding.route) {
@@ -35,7 +37,8 @@ fun NavigationHost(
             LoginScreen(
                 onLogin = {
                     navHostController.popBackStack()
-                    navHostController.navigate(NavigationRoute.Home.route)
+                    println(it)
+                    navHostController.navigate(NavigationRoute.Home.route + "?userId=$it")
                 },
                 onSignUp = {
                     navHostController.navigate(NavigationRoute.SignUp.route)
@@ -46,7 +49,7 @@ fun NavigationHost(
             SignUpScreen(
                 onSignIn = {
                     //delete all BackStack routes
-                    navHostController.navigate(NavigationRoute.Home.route) {
+                    navHostController.navigate(NavigationRoute.Home.route + "?userId=$it") {
                         popUpTo(navHostController.graph.id) {
                             inclusive = true
                         }
@@ -55,25 +58,52 @@ fun NavigationHost(
                 onLogin = { navHostController.popBackStack() }
             )
         }
-        composable(NavigationRoute.Home.route) {
+        composable(
+            NavigationRoute.Home.route + "?userId={userId}",
+            arguments = listOf(navArgument("userId") {
+                type = NavType.StringType
+                nullable = false
+                defaultValue = ""
+            })
+        ) {
             HomeScreen(
-                onNewHabit = { navHostController.navigate(NavigationRoute.Detail.route) },
+                onNewHabit = { userId ->
+                    navHostController.navigate(NavigationRoute.Detail.route + "?userId=$userId")
+                },
                 onSettings = { navHostController.navigate(NavigationRoute.Settings.route) },
-                onEditHabit = { navHostController.navigate(NavigationRoute.Detail.route + "?habitId=$it") }
+                onEditHabit = { habitId, userId ->
+                    navHostController.navigate(NavigationRoute.Detail.route + "?userId=$userId&habitId=$habitId")
+                }
             )
         }
         composable(
-            NavigationRoute.Detail.route + "?habitId={habitId}",
-            arguments = listOf(navArgument("habitId") {
-                type = NavType.StringType
-                nullable = true
-                defaultValue = null
-            })
+            NavigationRoute.Detail.route + "?userId={userId}&habitId={habitId}",
+            arguments = listOf(
+                navArgument("habitId") {
+                    type = NavType.StringType
+                    nullable = true
+                    defaultValue = null
+                },
+                navArgument("userId") {
+                    type = NavType.StringType
+                    nullable = false
+                    defaultValue = ""
+                }
+            )
         ) {
             DetailScreen(
                 onBack = { navHostController.popBackStack() },
                 onSave = { navHostController.popBackStack() }
             )
+        }
+        composable(NavigationRoute.LaunchHome.route) {
+            LaunchedEffect(Unit) {
+                navHostController.navigate(NavigationRoute.Home.route + "?userId=$userId") {
+                    popUpTo(navHostController.graph.id) {
+                        inclusive = true
+                    }
+                }
+            }
         }
     }
 }
