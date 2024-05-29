@@ -28,6 +28,9 @@ class HomeViewModel @Inject constructor(
         val userId = savedStateHandle.get<String?>("userId") ?: ""
         state = state.copy(userId = userId)
         getHabits()
+        viewModelScope.launch {
+            homeUseCases.syncHabitUseCase()
+        }
     }
 
     fun onEvent(event: HomeEvent) {

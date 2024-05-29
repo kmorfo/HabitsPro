@@ -2,6 +2,7 @@ package es.rlujancreations.habitsapppro.home.di
 
 import android.content.Context
 import androidx.room.Room
+import androidx.work.WorkManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,6 +21,7 @@ import es.rlujancreations.habitsapppro.home.domain.detail.usecases.InsertHabitUs
 import es.rlujancreations.habitsapppro.home.domain.home.usecases.CompleteHabitUseCase
 import es.rlujancreations.habitsapppro.home.domain.home.usecases.GetAllHabitsForDateUseCase
 import es.rlujancreations.habitsapppro.home.domain.home.usecases.HomeUseCases
+import es.rlujancreations.habitsapppro.home.domain.home.usecases.SynHabitUseCase
 import es.rlujancreations.habitsapppro.home.domain.repository.HomeRepository
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -39,7 +41,8 @@ object HomeModule {
     fun provideHomeUseCases(repository: HomeRepository): HomeUseCases {
         return HomeUseCases(
             completeHabitUseCase = CompleteHabitUseCase(repository),
-            getAllHabitsForDateUseCase = GetAllHabitsForDateUseCase(repository)
+            getAllHabitsForDateUseCase = GetAllHabitsForDateUseCase(repository),
+            syncHabitUseCase = SynHabitUseCase(repository)
         )
     }
 
@@ -86,9 +89,16 @@ object HomeModule {
     fun provideHomeRepository(
         dao: HomeDao,
         api: HomeApi,
-        alarmHandler: AlarmHandler
+        alarmHandler: AlarmHandler,
+        workManager: WorkManager
     ): HomeRepository {
-        return HomeRepositoryImpl(dao, api, alarmHandler)
+        return HomeRepositoryImpl(dao, api, alarmHandler, workManager)
+    }
+
+    @Singleton
+    @Provides
+    fun provideWorkManager(@ApplicationContext context: Context): WorkManager {
+        return WorkManager.getInstance(context)
     }
 
     @Singleton

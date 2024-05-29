@@ -4,6 +4,7 @@ import es.rlujancreations.habitsapppro.home.data.extension.toStartOfDateTimestam
 import es.rlujancreations.habitsapppro.home.data.extension.toTimeStamp
 import es.rlujancreations.habitsapppro.home.data.extension.toZonedDateTime
 import es.rlujancreations.habitsapppro.home.data.local.entity.HabitEntity
+import es.rlujancreations.habitsapppro.home.data.local.entity.HabitSyncEntity
 import es.rlujancreations.habitsapppro.home.data.remote.dto.HabitDto
 import es.rlujancreations.habitsapppro.home.data.remote.dto.HabitResponse
 import es.rlujancreations.habitsapppro.home.domain.models.Habit
@@ -64,4 +65,8 @@ fun Habit.toDto(): HabitResponse {
         startDate = this.startDate.toStartOfDateTimestamp()
     )
     return mapOf(id to dto)
+}
+
+fun Habit.toSyncEntity(): HabitSyncEntity {
+    return HabitSyncEntity(id)
 }
