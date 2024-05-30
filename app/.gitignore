@@ -1,1 +1,4 @@
 /build
+.gitignore
+/app/google-services.json
+
