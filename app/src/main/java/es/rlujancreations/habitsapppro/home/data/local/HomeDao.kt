@@ -21,8 +21,11 @@ interface HomeDao {
     @Query("SELECT * FROM HabitEntity WHERE id = :id")
     suspend fun getHabitById(id: String): HabitEntity
 
-    @Query("SELECT * FROM HabitEntity WHERE  startDate <= :date AND userId = :userId ")
+    @Query("SELECT * FROM HabitEntity WHERE startDate <= :date AND userId = :userId ORDER BY id ASC")
     fun getAllHabitsForSelectedDate(date: Long, userId: String): Flow<List<HabitEntity>>
+
+    @Query("SELECT * FROM HabitEntity")
+    fun getAllHabits(): List<HabitEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertHabitSync(habitSyncEntity: HabitSyncEntity)

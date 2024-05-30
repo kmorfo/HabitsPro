@@ -12,6 +12,9 @@ import es.rlujancreations.habitsapppro.home.data.mapper.toDomain
 import es.rlujancreations.habitsapppro.home.data.mapper.toDto
 import es.rlujancreations.habitsapppro.home.data.remote.HomeApi
 import es.rlujancreations.habitsapppro.home.data.remote.util.resultOf
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.joinAll
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.supervisorScope
 
@@ -32,20 +35,20 @@ class HabitSyncWorker @AssistedInject constructor(
 
         return try {
             supervisorScope {
-                val jobs = items.map { items -> launch { sync(items) } }
-                jobs.forEach { it.join() }
+                val jobs = items.map { items -> async { sync(items) } }
+                jobs.awaitAll()
             }
             Result.success()
         } catch (e: Exception) {
-            Result.failure()
+            Result.retry()
         }
         /*
-        Si queremos insertar uno a uno cada habit en la api sin el try-catch
-        items.forEach {
+                Si queremos insertar uno a uno cada habit en la api sin el try-catch
+                items.forEach {
                     sync(it.id)
-                }
-        return Result.success()
-                */
+                 }
+                return Result.success()
+        */
     }
 
     private suspend fun sync(entity: HabitSyncEntity) {
@@ -54,7 +57,8 @@ class HabitSyncWorker @AssistedInject constructor(
         resultOf { api.insertHabit(habit) }
             .onSuccess {
                 dao.deleteHabitSync(entity)
-            }.onFailure { throw it }
-
+            }.onFailure {
+                throw it
+            }
     }
 }

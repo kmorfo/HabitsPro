@@ -26,7 +26,7 @@ import java.time.LocalDate
  */
 
 @Composable
-fun HomeHabit(
+fun     HomeHabit(
     habit: Habit,
     selectedDate: LocalDate,
     onCheckedChange: () -> Unit,
