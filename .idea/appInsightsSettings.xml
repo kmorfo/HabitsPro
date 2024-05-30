@@ -11,9 +11,6 @@
                   <option name="appId" value="es.rlujancreations.registrohorario" />
                 </ConnectionSetting>
               </option>
-              <option name="failureTypes">
-                <list />
-              </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
               <option name="timeIntervalDays" value="SEVEN_DAYS" />
               <option name="visibilityType" value="ALL" />

@@ -1,6 +1,5 @@
 package es.rlujancreations.habitsapppro.navigation
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.navigation.NavHostController
@@ -13,6 +12,7 @@ import es.rlujancreations.habitsapppro.authentication.presentation.signup.SignUp
 import es.rlujancreations.habitsapppro.home.presentarion.detail.DetailScreen
 import es.rlujancreations.habitsapppro.home.presentarion.home.HomeScreen
 import es.rlujancreations.habitsapppro.onboarding.presentation.OnboardingScreen
+import es.rlujancreations.habitsapppro.settings.presentation.SettingsScreen
 
 /**
  * Created by Raúl L.C. on 2/4/24.
@@ -22,7 +22,8 @@ import es.rlujancreations.habitsapppro.onboarding.presentation.OnboardingScreen
 fun NavigationHost(
     navHostController: NavHostController,
     startDestination: NavigationRoute,
-    userId: String
+    userId: String,
+    logout: () -> Unit
 ) {
     NavHost(navController = navHostController, startDestination = startDestination.route) {
         composable(NavigationRoute.Onboarding.route) {
@@ -104,6 +105,17 @@ fun NavigationHost(
                     }
                 }
             }
+        }
+        composable(NavigationRoute.Settings.route) {
+            SettingsScreen(onBack = { navHostController.popBackStack() },
+                onLogout = {
+                    logout()
+                    navHostController.navigate(NavigationRoute.Login.route) {
+                        popUpTo(navHostController.graph.id) {
+                            inclusive = true
+                        }
+                    }
+                })
         }
     }
 }

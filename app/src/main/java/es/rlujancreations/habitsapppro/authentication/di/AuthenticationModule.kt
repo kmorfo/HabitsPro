@@ -11,6 +11,7 @@ import es.rlujancreations.habitsapppro.authentication.domain.repository.Authenti
 import es.rlujancreations.habitsapppro.authentication.domain.usecase.GetUserIdUseCase
 import es.rlujancreations.habitsapppro.authentication.domain.usecase.LoginUseCases
 import es.rlujancreations.habitsapppro.authentication.domain.usecase.LoginWithEmailUseCase
+import es.rlujancreations.habitsapppro.authentication.domain.usecase.LogoutUseCase
 import es.rlujancreations.habitsapppro.authentication.domain.usecase.SignUpUseCases
 import es.rlujancreations.habitsapppro.authentication.domain.usecase.SignUpWithEmailUseCase
 import es.rlujancreations.habitsapppro.authentication.domain.usecase.ValidateEmailUseCase
@@ -69,5 +70,11 @@ object AuthenticationModule {
     @Singleton
     fun provideGetUserIdUseCase(repository: AuthenticationRepository): GetUserIdUseCase {
         return GetUserIdUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideLogoutUseCase(repository: AuthenticationRepository): LogoutUseCase {
+        return LogoutUseCase(repository)
     }
 }

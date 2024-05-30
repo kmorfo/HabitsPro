@@ -31,7 +31,8 @@ class MainActivity : ComponentActivity() {
                     NavigationHost(
                         navHostController = navController,
                         startDestination = getStartDestination(),
-                        userId = viewModel.isLoggedIn
+                        userId = viewModel.isLoggedIn,
+                        logout = { viewModel.logout() }
                     )
                 }
             }
