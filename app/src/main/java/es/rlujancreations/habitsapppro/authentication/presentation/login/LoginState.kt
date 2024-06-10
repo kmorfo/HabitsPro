@@ -12,5 +12,6 @@ data class LoginState(
     val password: String = "",
     @StringRes val passwordError: Int? = null,
     val isLoggedIn: Boolean = false,
-    val isLoading: Boolean = false
+    val isLoading: Boolean = false,
+    val responseError: String? = null
 )

@@ -13,5 +13,6 @@ data class SignUpState(
     @StringRes val passwordError: Int? = null,
     val isSignedIn: Boolean = false,
     val isLoading: Boolean = false,
-    val login: Boolean = false
+    val login: Boolean = false,
+    val responseError: String? = null
 )

@@ -1,5 +1,6 @@
 package es.rlujancreations.habitsapppro.authentication.presentation.login
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -17,6 +18,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -77,6 +79,10 @@ fun LoginScreen(
                 modifier = Modifier.padding(horizontal = 32.dp)
             )
             LoginForm(state = state, viewModel::onEvent, onSignUp)
+        }
+        if (state.responseError != null){
+            Toast.makeText(LocalContext.current, state.responseError, Toast.LENGTH_LONG).show()
+            viewModel.emptyResponseError()
         }
     }
 }

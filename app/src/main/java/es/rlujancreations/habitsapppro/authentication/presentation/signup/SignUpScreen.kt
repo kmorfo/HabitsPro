@@ -1,5 +1,6 @@
 package es.rlujancreations.habitsapppro.authentication.presentation.signup
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -11,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -22,7 +24,7 @@ import es.rlujancreations.habitsapppro.authentication.presentation.signup.compon
  */
 @Composable
 fun SignUpScreen(
-    onSignIn: (userId:String) -> Unit,
+    onSignIn: (userId: String) -> Unit,
     onLogin: () -> Unit,
     viewModel: SignUpViewModel = hiltViewModel()
 ) {
@@ -54,4 +56,9 @@ fun SignUpScreen(
         Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             CircularProgressIndicator()
         }
+
+    if (state.responseError != null) {
+        Toast.makeText(LocalContext.current, state.responseError, Toast.LENGTH_LONG).show()
+        viewModel.emptyResponseError()
+    }
 }

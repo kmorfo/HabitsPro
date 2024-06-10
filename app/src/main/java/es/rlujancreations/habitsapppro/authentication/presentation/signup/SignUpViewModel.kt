@@ -7,8 +7,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import es.rlujancreations.habitsapppro.R
-import es.rlujancreations.habitsapppro.authentication.domain.usecase.PasswordResult
 import es.rlujancreations.habitsapppro.authentication.domain.usecase.SignUpUseCases
+import es.rlujancreations.habitsapppro.authentication.presentation.util.PasswordErrorParser
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -51,8 +51,7 @@ class SignUpViewModel @Inject constructor(
             state = state.copy(emailError = R.string.emailError)
 
         val passwordResult = signUpUseCases.validatePasswordUseCase(state.password)
-        if (passwordResult is PasswordResult.Invalid)
-            state = state.copy(passwordError = passwordResult.errorMessage)
+        state = state.copy(passwordError = PasswordErrorParser.parseError(passwordResult))
 
         if (state.emailError == null && state.passwordError == null) {
             state = state.copy(isLoading = true)
@@ -69,12 +68,15 @@ class SignUpViewModel @Inject constructor(
                         val error = it.message
                         println("La jodimos tia paca $error")
                         //Para mostrar al usuario
-                        //TODO Crear un snackbar con el error
-//                        state = state.copy(emailError = it.message)
+                        state = state.copy(responseError = it.message)
                     }
                 state = state.copy(isLoading = false)
             }
         }
+    }
+
+    fun emptyResponseError() {
+        state = state.copy(responseError = null)
     }
 }
 
