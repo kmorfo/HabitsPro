@@ -6,5 +6,5 @@ package es.rlujancreations.habitsapppro.home.domain.home.usecases
 data class HomeUseCases(
     val completeHabitUseCase: CompleteHabitUseCase,
     val getAllHabitsForDateUseCase: GetAllHabitsForDateUseCase,
-    val syncHabitUseCase: SynHabitUseCase
+    val syncHabitUseCase: SyncHabitUseCase
 )

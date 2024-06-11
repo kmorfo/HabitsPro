@@ -21,7 +21,7 @@ import es.rlujancreations.habitsapppro.home.domain.detail.usecases.InsertHabitUs
 import es.rlujancreations.habitsapppro.home.domain.home.usecases.CompleteHabitUseCase
 import es.rlujancreations.habitsapppro.home.domain.home.usecases.GetAllHabitsForDateUseCase
 import es.rlujancreations.habitsapppro.home.domain.home.usecases.HomeUseCases
-import es.rlujancreations.habitsapppro.home.domain.home.usecases.SynHabitUseCase
+import es.rlujancreations.habitsapppro.home.domain.home.usecases.SyncHabitUseCase
 import es.rlujancreations.habitsapppro.home.domain.repository.HomeRepository
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -42,7 +42,7 @@ object HomeModule {
         return HomeUseCases(
             completeHabitUseCase = CompleteHabitUseCase(repository),
             getAllHabitsForDateUseCase = GetAllHabitsForDateUseCase(repository),
-            syncHabitUseCase = SynHabitUseCase(repository)
+            syncHabitUseCase = SyncHabitUseCase(repository)
         )
     }
 

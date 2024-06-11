@@ -42,6 +42,7 @@
     <string name="habits">Habits</string>
     <string name="cdCheckedCheckbox">Checkbox Checked</string>
     <string name="cdCUncheckedCheckbox">Checkbox Unchecked</string>
+    <string name="cdFloatingAction">Add a new habit</string>
     <string name="createHabit">Create Habit</string>
     <string name="saveHabit">Save Habit</string>
 

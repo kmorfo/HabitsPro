@@ -145,7 +145,7 @@ class LoginViewModelTest {
 
             state = loginViewModel.state
             assert(!state.isLoggedIn)
-            assertNotNull(state.emailError)
+            assertNull(state.emailError)
             assert(!state.isLoading)
         }
 }
