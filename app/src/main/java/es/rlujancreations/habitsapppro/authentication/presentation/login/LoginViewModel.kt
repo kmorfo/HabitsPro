@@ -10,6 +10,8 @@ import es.rlujancreations.habitsapppro.R
 import es.rlujancreations.habitsapppro.authentication.domain.usecase.LoginUseCases
 import es.rlujancreations.habitsapppro.authentication.domain.usecase.PasswordResult
 import es.rlujancreations.habitsapppro.authentication.presentation.util.PasswordErrorParser
+import es.rlujancreations.habitsapppro.core.di.IoDispatcher
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -18,7 +20,8 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val loginUseCases: LoginUseCases
+    private val loginUseCases: LoginUseCases,
+    @IoDispatcher private val dispatcher: CoroutineDispatcher
 ) : ViewModel() {
 
     var state by mutableStateOf(LoginState())
@@ -51,7 +54,7 @@ class LoginViewModel @Inject constructor(
         if (state.emailError == null && state.passwordError == null) {
             state = state.copy(isLoading = true)
 
-            viewModelScope.launch {
+            viewModelScope.launch(dispatcher) {
                 loginUseCases.loginWithEmailUseCase(email = state.email, password = state.password)
                     .onSuccess {
                         val userId = loginUseCases.getUserIdUseCase() ?: ""
