@@ -30,6 +30,9 @@ firebaseBom = "33.1.0"
 minSdk = "26"
 compileSdk = "34"
 targetSdk = "34"
+jetbrainsKotlinJvmVersion = "1.9.0"
+appcompatVersion = "1.7.0"
+materialVersion = "1.12.0"
 
 [libraries]
 #accompanist-pager-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanistVersion" }
@@ -74,9 +77,13 @@ ui = { module = "androidx.compose.ui:ui", version.ref = "composeVersion" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx" }
 firebase-analytics-ktx = { group = "com.google.firebase", name = "firebase-analytics-ktx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompatVersion" }
+material = { group = "com.google.android.material", name = "material", version.ref = "materialVersion" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 googleServices = { id = "com.google.gms.google-services", version.ref = "services" }
 androidHilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltVersion" }
+jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvmVersion" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
