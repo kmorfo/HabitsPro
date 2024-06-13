@@ -34,9 +34,9 @@ import androidx.compose.ui.unit.dp
 import es.rlujancreations.habitsapppro.R
 import es.rlujancreations.habitsapppro.authentication.presentation.login.LoginEvent
 import es.rlujancreations.habitsapppro.authentication.presentation.login.LoginState
-import es.rlujancreations.habitsapppro.core.presentation.HabitButton
-import es.rlujancreations.habitsapppro.core.presentation.HabitPasswordTextfield
-import es.rlujancreations.habitsapppro.core.presentation.HabitTextfield
+import es.rlujancreations.core.presentation.HabitButton
+import es.rlujancreations.core.presentation.HabitPasswordTextfield
+import es.rlujancreations.core.presentation.HabitTextfield
 
 /**
  * Created by Raúl L.C. on 9/4/24.
@@ -70,7 +70,7 @@ fun LoginForm(
                     .height(1.dp)
                     .background(MaterialTheme.colorScheme.primary)
             )
-            HabitTextfield(
+            es.rlujancreations.core.presentation.HabitTextfield(
                 value = state.email,
                 onValueChange = { onEvent(LoginEvent.EmailChange(it)) },
                 placeholder = stringResource(id = R.string.valueEmail),
@@ -91,7 +91,7 @@ fun LoginForm(
                 errorMessage = state.emailError?.let { stringResource(it) },
                 isEnabled = !state.isLoading,
             )
-            HabitPasswordTextfield(
+            es.rlujancreations.core.presentation.HabitPasswordTextfield(
                 value = state.password,
                 onValueChange = { onEvent(LoginEvent.PasswordChange(it)) },
                 contentDescription = stringResource(id = R.string.cdPassword),
@@ -111,7 +111,7 @@ fun LoginForm(
                     onEvent(LoginEvent.Login)
                 })
             )
-            HabitButton(
+            es.rlujancreations.core.presentation.HabitButton(
                 text = stringResource(id = R.string.login),
                 modifier = Modifier
                     .fillMaxWidth()

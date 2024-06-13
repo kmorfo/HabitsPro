@@ -63,6 +63,9 @@ dependencies {
 //        }
 //    }
 
+    implementation(project(":core:data"))
+    implementation(project(":core:presentation"))
+
     //it is necessary for minusDays and enable it in compileOptions
     //Get day of week api 25 or lower
     coreLibraryDesugaring(libs.desugar.jdk.libs)
@@ -129,4 +132,6 @@ dependencies {
     androidTestImplementation(libs.hilt.android.testing)
     testImplementation(libs.mockk)
     androidTestImplementation(libs.androidx.work.testing)
+
+
 }

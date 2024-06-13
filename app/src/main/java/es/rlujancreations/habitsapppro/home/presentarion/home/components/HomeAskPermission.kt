@@ -31,7 +31,7 @@ fun HomeAskPermission(
             onDismissRequest = { },
             modifier = modifier,
             confirmButton = {
-                es.rlujancreations.habitsapppro.core.presentation.HabitButton(
+                es.rlujancreations.core.presentation.HabitButton(
                     text = stringResource(R.string.permissionAccept),
                     modifier = Modifier.fillMaxWidth()
                 ) {

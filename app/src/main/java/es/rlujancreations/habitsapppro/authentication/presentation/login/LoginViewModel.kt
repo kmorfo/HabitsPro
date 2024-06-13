@@ -10,7 +10,7 @@ import es.rlujancreations.habitsapppro.R
 import es.rlujancreations.habitsapppro.authentication.domain.usecase.LoginUseCases
 import es.rlujancreations.habitsapppro.authentication.domain.usecase.PasswordResult
 import es.rlujancreations.habitsapppro.authentication.presentation.util.PasswordErrorParser
-import es.rlujancreations.habitsapppro.core.di.IoDispatcher
+import es.rlujancreations.core.data.di.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package es.rlujancreations.habitsapppro.core.presentation
+package es.rlujancreations.core.presentation
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text

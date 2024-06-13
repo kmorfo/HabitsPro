@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import es.rlujancreations.habitsapppro.core.presentation.HabitCheckBox
+import es.rlujancreations.core.presentation.HabitCheckBox
 import es.rlujancreations.habitsapppro.home.domain.models.Habit
 import java.time.LocalDate
 
@@ -49,7 +49,11 @@ fun     HomeHabit(
             fontSize = 14.sp,
             color = MaterialTheme.colorScheme.tertiary
         )
-        HabitCheckBox(isChecked = habit.completedDates.contains(selectedDate)) {
+        es.rlujancreations.core.presentation.HabitCheckBox(
+            isChecked = habit.completedDates.contains(
+                selectedDate
+            )
+        ) {
             onCheckedChange()
         }
     }

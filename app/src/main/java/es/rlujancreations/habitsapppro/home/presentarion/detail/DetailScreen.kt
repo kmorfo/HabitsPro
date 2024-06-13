@@ -30,7 +30,7 @@ import com.maxkeppeler.sheets.clock.ClockDialog
 import com.maxkeppeler.sheets.clock.models.ClockConfig
 import com.maxkeppeler.sheets.clock.models.ClockSelection
 import es.rlujancreations.habitsapppro.R
-import es.rlujancreations.habitsapppro.core.presentation.HabitTextfield
+import es.rlujancreations.core.presentation.HabitTextfield
 import es.rlujancreations.habitsapppro.home.presentarion.detail.components.DetailFrequency
 import es.rlujancreations.habitsapppro.home.presentarion.detail.components.DetailReminder
 import java.time.LocalTime
@@ -96,7 +96,7 @@ fun DetailScreen(
                 .padding(it)
                 .padding(horizontal = 20.dp), verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            HabitTextfield(
+            es.rlujancreations.core.presentation.HabitTextfield(
                 value = state.habitName,
                 onValueChange = { viewModel.onEvent(DetailEvent.NameChange(it)) },
                 placeholder = stringResource(id = R.string.cdNewHabitTextField),

@@ -1,4 +1,4 @@
-package es.rlujancreations.habitsapppro.core.di
+package es.rlujancreations.core.data.di
 
 /**
  * Created by Raúl L.C. on 11/6/24.

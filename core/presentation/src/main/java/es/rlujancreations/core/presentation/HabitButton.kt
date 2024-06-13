@@ -1,4 +1,4 @@
-package es.rlujancreations.habitsapppro.core.presentation
+package es.rlujancreations.core.presentation
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape

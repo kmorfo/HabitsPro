@@ -30,10 +30,10 @@ import androidx.compose.ui.unit.dp
 import es.rlujancreations.habitsapppro.R
 import es.rlujancreations.habitsapppro.authentication.presentation.signup.SignUpEvent
 import es.rlujancreations.habitsapppro.authentication.presentation.signup.SignUpState
-import es.rlujancreations.habitsapppro.core.presentation.HabitButton
-import es.rlujancreations.habitsapppro.core.presentation.HabitPasswordTextfield
-import es.rlujancreations.habitsapppro.core.presentation.HabitTextfield
-import es.rlujancreations.habitsapppro.core.presentation.HabitTitle
+import es.rlujancreations.core.presentation.HabitButton
+import es.rlujancreations.core.presentation.HabitPasswordTextfield
+import es.rlujancreations.core.presentation.HabitTextfield
+import es.rlujancreations.core.presentation.HabitTitle
 
 /**
  * Created by Raúl L.C. on 14/4/24.
@@ -47,9 +47,9 @@ fun SignUpForm(
     val focusManager = LocalFocusManager.current
 
     Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
-        HabitTitle(title = stringResource(id = R.string.signUpTitle))
+        es.rlujancreations.core.presentation.HabitTitle(title = stringResource(id = R.string.signUpTitle))
         Spacer(modifier = Modifier.height(32.dp))
-        HabitTextfield(
+        es.rlujancreations.core.presentation.HabitTextfield(
             value = state.email,
             onValueChange = { onEvent(SignUpEvent.EmailChange(it)) },
             placeholder = stringResource(id = R.string.valueEmail),
@@ -72,7 +72,7 @@ fun SignUpForm(
             backgroundColor = Color.White
         )
         Spacer(modifier = Modifier.height(8.dp))
-        HabitPasswordTextfield(
+        es.rlujancreations.core.presentation.HabitPasswordTextfield(
             value = state.password,
             onValueChange = { onEvent(SignUpEvent.PasswordChange(it)) },
             contentDescription = stringResource(id = R.string.cdPassword),
@@ -94,7 +94,7 @@ fun SignUpForm(
             })
         )
         Spacer(modifier = Modifier.height(16.dp))
-        HabitButton(
+        es.rlujancreations.core.presentation.HabitButton(
             text = stringResource(id = R.string.createAccountBtn),
             modifier = Modifier
                 .fillMaxWidth()

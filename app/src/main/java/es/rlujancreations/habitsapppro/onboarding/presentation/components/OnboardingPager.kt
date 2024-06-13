@@ -36,8 +36,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import es.rlujancreations.habitsapppro.R
-import es.rlujancreations.habitsapppro.core.presentation.HabitButton
-import es.rlujancreations.habitsapppro.core.presentation.HabitTitle
+import es.rlujancreations.core.presentation.HabitButton
+import es.rlujancreations.core.presentation.HabitTitle
 import es.rlujancreations.habitsapppro.onboarding.presentation.OnboardingPagerInformation
 import kotlinx.coroutines.launch
 import kotlin.math.absoluteValue
@@ -67,7 +67,7 @@ fun OnboardingPager(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Spacer(modifier = Modifier.height(32.dp))
-                HabitTitle(title = stringResource(id = information.title))
+                es.rlujancreations.core.presentation.HabitTitle(title = stringResource(id = information.title))
                 Spacer(modifier = Modifier.height(32.dp))
                 Image(
                     painter = painterResource(id = information.image),
@@ -95,7 +95,7 @@ fun OnboardingPager(
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             if (pagerState.currentPage == pages.lastIndex) {
-                HabitButton(
+                es.rlujancreations.core.presentation.HabitButton(
                     text = stringResource(id = R.string.btn_getStarted),
                     modifier = Modifier.fillMaxWidth()
                 ) { onFinish() }

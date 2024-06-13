@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cdCheckedCheckbox">Checkbox Checked</string>
+    <string name="show">Show</string>
+    <string name="hide">Hide</string>
+</resources>

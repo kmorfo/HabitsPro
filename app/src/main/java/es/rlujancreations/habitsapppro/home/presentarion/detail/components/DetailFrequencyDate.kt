@@ -17,7 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import es.rlujancreations.habitsapppro.core.presentation.HabitCheckBox
+import es.rlujancreations.core.presentation.HabitCheckBox
 import java.time.DayOfWeek
 
 /**
@@ -43,7 +43,7 @@ fun DetailFrequencyDate(
             color = MaterialTheme.colorScheme.tertiary.copy(alpha = 0.5f)
         )
         Spacer(modifier = Modifier.height(8.dp))
-        HabitCheckBox(
+        es.rlujancreations.core.presentation.HabitCheckBox(
             isChecked = isChecked,
             onCheckedChange = onCheckedChange,
             modifier = Modifier.semantics { contentDescription = date.name })
