@@ -1,4 +1,4 @@
-package es.rlujancreations.habitsapppro.onboarding.presentation
+package es.rlujancreations.onboarding.presentation
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes

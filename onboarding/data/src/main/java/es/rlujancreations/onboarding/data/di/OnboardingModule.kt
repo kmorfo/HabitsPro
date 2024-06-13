@@ -1,4 +1,4 @@
-package es.rlujancreations.habitsapppro.onboarding.di
+package es.rlujancreations.onboarding.data.di
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -7,10 +7,10 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import es.rlujancreations.habitsapppro.onboarding.data.repository.OnboardingRepositoryImpl
-import es.rlujancreations.habitsapppro.onboarding.domain.repository.OnboardingRepository
-import es.rlujancreations.habitsapppro.onboarding.domain.usecase.CompleteOnboardingUseCase
-import es.rlujancreations.habitsapppro.onboarding.domain.usecase.HasSeenOnboardingUseCase
+import es.rlujancreations.onboarding.domain.repository.OnboardingRepository
+import es.rlujancreations.onboarding.domain.usecase.CompleteOnboardingUseCase
+import es.rlujancreations.onboarding.domain.usecase.HasSeenOnboardingUseCase
+
 import javax.inject.Singleton
 
 /**
@@ -29,18 +29,20 @@ object OnboardingModule {
     @Provides
     @Singleton
     fun provideOnboardingRepository(sharedPreferences: SharedPreferences): OnboardingRepository {
-        return OnboardingRepositoryImpl(sharedPreferences)
+        return es.rlujancreations.onboarding.data.repository.OnboardingRepositoryImpl(
+            sharedPreferences
+        )
     }
 
     @Provides
     @Singleton
     fun provideHasSeenOnboardingUseCase(repository: OnboardingRepository): HasSeenOnboardingUseCase {
-        return HasSeenOnboardingUseCase(repository)
+        return es.rlujancreations.onboarding.domain.usecase.HasSeenOnboardingUseCase(repository)
     }
 
     @Provides
     @Singleton
     fun provideCompleteOnboardingUseCase(repository: OnboardingRepository): CompleteOnboardingUseCase {
-        return CompleteOnboardingUseCase(repository)
+        return es.rlujancreations.onboarding.domain.usecase.CompleteOnboardingUseCase(repository)
     }
 }

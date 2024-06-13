@@ -11,8 +11,7 @@ import es.rlujancreations.habitsapppro.authentication.presentation.login.LoginSc
 import es.rlujancreations.habitsapppro.authentication.presentation.signup.SignUpScreen
 import es.rlujancreations.habitsapppro.home.presentarion.detail.DetailScreen
 import es.rlujancreations.habitsapppro.home.presentarion.home.HomeScreen
-import es.rlujancreations.habitsapppro.onboarding.presentation.OnboardingScreen
-import es.rlujancreations.settings.presentation.SettingsScreen
+import es.rlujancreations.onboarding.presentation.OnboardingScreen
 
 /**
  * Created by Raúl L.C. on 2/4/24.
@@ -27,7 +26,7 @@ fun NavigationHost(
 ) {
     NavHost(navController = navHostController, startDestination = startDestination.route) {
         composable(NavigationRoute.Onboarding.route) {
-            OnboardingScreen(
+            es.rlujancreations.onboarding.presentation.OnboardingScreen(
                 onFinish = {
                     navHostController.popBackStack()
                     navHostController.navigate(NavigationRoute.Login.route)

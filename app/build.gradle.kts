@@ -66,6 +66,9 @@ dependencies {
     implementation(project(":settings:presentation"))
     implementation(project(":core:data"))
     implementation(project(":core:presentation"))
+    implementation(project(":onboarding:data"))
+    implementation(project(":onboarding:domain"))
+    implementation(project(":onboarding:presentation"))
 
     //it is necessary for minusDays and enable it in compileOptions
     //Get day of week api 25 or lower

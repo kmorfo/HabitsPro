@@ -1,4 +1,4 @@
-package es.rlujancreations.habitsapppro.onboarding.presentation.components
+package es.rlujancreations.onboarding.presentation.components
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
@@ -35,10 +35,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import es.rlujancreations.habitsapppro.R
-import es.rlujancreations.core.presentation.HabitButton
-import es.rlujancreations.core.presentation.HabitTitle
-import es.rlujancreations.habitsapppro.onboarding.presentation.OnboardingPagerInformation
+import es.rlujancreations.onboarding.presentation.OnboardingPagerInformation
+import es.rlujancreations.onboarding.presentation.R
 import kotlinx.coroutines.launch
 import kotlin.math.absoluteValue
 

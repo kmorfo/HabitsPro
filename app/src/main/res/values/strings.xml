@@ -1,19 +1,6 @@
 <resources>
     <string name="app_name">HabitsAppPro</string>
 
-    <!--    OnBoarding texts-->
-    <string name="btn_skip">Skip</string>
-    <string name="btn_next">Next</string>
-    <string name="btn_getStarted">Get Started</string>
-    <string name="onboarding_title1">Welcome to Monumental Habits</string>
-    <string name="onboarding_subtitle1">We can help you to be a better version of yourself.</string>
-    <string name="onboarding_title2">Create new habits easily</string>
-    <string name="onboarding_subtitle2">We can help you to be a better version of yourself.</string>
-    <string name="onboarding_title3">Keep track of your progress</string>
-    <string name="onboarding_subtitle3">We can help you to be a better version of yourself.</string>
-    <string name="onboarding_title4">Join a supportive community</string>
-    <string name="onboarding_subtitle4">We can help you to be a better version of yourself.</string>
-
     <!-- LoginScreen texts -->
     <string name="cdLoginBackground">Login Background</string>
     <string name="loginTitle">Welcome to Monumental Habits</string>

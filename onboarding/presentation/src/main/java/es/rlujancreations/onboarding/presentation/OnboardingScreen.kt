@@ -1,11 +1,10 @@
-package es.rlujancreations.habitsapppro.onboarding.presentation
+package es.rlujancreations.onboarding.presentation
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
-import es.rlujancreations.habitsapppro.R
-import es.rlujancreations.habitsapppro.onboarding.presentation.components.OnboardingPager
+import es.rlujancreations.onboarding.presentation.components.OnboardingPager
 
 /**
  * Created by Raúl L.C. on 6/4/24.

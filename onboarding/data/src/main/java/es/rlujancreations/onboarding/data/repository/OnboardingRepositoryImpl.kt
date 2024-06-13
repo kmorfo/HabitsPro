@@ -1,14 +1,14 @@
-package es.rlujancreations.habitsapppro.onboarding.data.repository
+package es.rlujancreations.onboarding.data.repository
 
 import android.content.SharedPreferences
-import es.rlujancreations.habitsapppro.onboarding.domain.repository.OnboardingRepository
+import es.rlujancreations.onboarding.domain.repository.OnboardingRepository
 
 /**
  * Created by Raúl L.C. on 7/4/24.
  */
 class OnboardingRepositoryImpl(
     private val sharedPreferences: SharedPreferences
-) : OnboardingRepository {
+) : es.rlujancreations.onboarding.domain.repository.OnboardingRepository {
     companion object {
         private const val HAS_SEEN_ONBOARDING = "has_seen_onboarding"
     }

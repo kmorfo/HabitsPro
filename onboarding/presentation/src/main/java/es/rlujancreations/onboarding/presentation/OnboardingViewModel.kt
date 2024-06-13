@@ -1,12 +1,13 @@
-package es.rlujancreations.habitsapppro.onboarding.presentation
+package es.rlujancreations.onboarding.presentation
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import es.rlujancreations.habitsapppro.onboarding.domain.usecase.CompleteOnboardingUseCase
-import es.rlujancreations.habitsapppro.onboarding.domain.usecase.HasSeenOnboardingUseCase
+import es.rlujancreations.onboarding.domain.usecase.CompleteOnboardingUseCase
+import es.rlujancreations.onboarding.domain.usecase.HasSeenOnboardingUseCase
+
 import javax.inject.Inject
 
 /**
