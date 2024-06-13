@@ -1,26 +1,6 @@
 <resources>
     <string name="app_name">HabitsAppPro</string>
 
-    <!-- LoginScreen texts -->
-    <string name="cdLoginBackground">Login Background</string>
-    <string name="loginTitle">Welcome to Monumental Habits</string>
-    <string name="loginFormTitle">Log in with Email</string>
-    <string name="valueEmail">Email</string>
-    <string name="cdEmail">Enter Email</string>
-    <string name="valuePassword">Password</string>
-    <string name="cdPassword">Enter Password</string>
-    <string name="login">Login</string>
-    <string name="forgotPassword">Forgot Password?</string>
-    <string name="createAccount">"Don't have an account? "</string>
-    <string name="register">"Sign up"</string>
-
-    <!--    SignUpScreen texts-->
-    <string name="cdSignUpBackground">SignUp backgroun image</string>
-    <string name="signUpTitle">Create your account</string>
-    <string name="createAccountBtn">Create account</string>
-    <string name="alReadyHaveAccount">Aldeady have an account?</string>
-    <string name="signIn">Sign In</string>
-
     <!--    Home Screen-->
     <string name="cdSettings">To Settings button</string>
     <string name="quoteText">We first make our habits, and then our habits make us.</string>
@@ -40,13 +20,6 @@
     <string name="cdNewHabitTextField">Enter habit name</string>
     <string name="frequency">Frequency</string>
 
-
-    <!--    Validation Errors-->
-    <string name="sortPassword">Password must be more than 8 characters</string>
-    <string name="allUppercasePassword">The password must have at least one lowercase character</string>
-    <string name="allLowercasePassword">The password must have at least one uppercase character</string>
-    <string name="allcharactersPassword">The password must have at least one digit</string>
-    <string name="emailError">Email not valid</string>
     <string name="homeScreenTitle">Home</string>
 
     <!--    Permissions dialog-->

@@ -69,6 +69,9 @@ dependencies {
     implementation(project(":onboarding:data"))
     implementation(project(":onboarding:domain"))
     implementation(project(":onboarding:presentation"))
+    implementation(project(":authentication:data"))
+    implementation(project(":authentication:domain"))
+    implementation(project(":authentication:presentation"))
 
     //it is necessary for minusDays and enable it in compileOptions
     //Get day of week api 25 or lower

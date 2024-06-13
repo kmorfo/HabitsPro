@@ -6,8 +6,8 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import es.rlujancreations.habitsapppro.authentication.domain.usecase.GetUserIdUseCase
-import es.rlujancreations.habitsapppro.authentication.domain.usecase.LogoutUseCase
+import es.rlujancreations.authentication.domain.usecase.GetUserIdUseCase
+import es.rlujancreations.authentication.domain.usecase.LogoutUseCase
 import es.rlujancreations.onboarding.domain.usecase.HasSeenOnboardingUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -18,8 +18,8 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val hasSeenOnboardingUseCase: es.rlujancreations.onboarding.domain.usecase.HasSeenOnboardingUseCase,
-    private val getUserIdUseCase: GetUserIdUseCase,
-    private val logoutUseCase: LogoutUseCase
+    private val getUserIdUseCase: es.rlujancreations.authentication.domain.usecase.GetUserIdUseCase,
+    private val logoutUseCase: es.rlujancreations.authentication.domain.usecase.LogoutUseCase
 ) : ViewModel() {
     var hasSeenOnboarding by mutableStateOf(hasSeenOnboardingUseCase())
         private set

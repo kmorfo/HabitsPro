@@ -7,8 +7,8 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import es.rlujancreations.habitsapppro.authentication.presentation.login.LoginScreen
-import es.rlujancreations.habitsapppro.authentication.presentation.signup.SignUpScreen
+import es.rlujancreations.authentication.presentation.login.LoginScreen
+import es.rlujancreations.authentication.presentation.signup.SignUpScreen
 import es.rlujancreations.habitsapppro.home.presentarion.detail.DetailScreen
 import es.rlujancreations.habitsapppro.home.presentarion.home.HomeScreen
 import es.rlujancreations.onboarding.presentation.OnboardingScreen
@@ -34,7 +34,7 @@ fun NavigationHost(
             )
         }
         composable(NavigationRoute.Login.route) {
-            LoginScreen(
+            es.rlujancreations.authentication.presentation.login.LoginScreen(
                 onLogin = {
                     navHostController.popBackStack()
                     println(it)
@@ -46,7 +46,7 @@ fun NavigationHost(
             )
         }
         composable(NavigationRoute.SignUp.route) {
-            SignUpScreen(
+            es.rlujancreations.authentication.presentation.signup.SignUpScreen(
                 onSignIn = {
                     //delete all BackStack routes
                     navHostController.navigate(NavigationRoute.Home.route + "?userId=$it") {

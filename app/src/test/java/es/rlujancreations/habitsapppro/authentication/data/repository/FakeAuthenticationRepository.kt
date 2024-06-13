@@ -1,11 +1,12 @@
 package es.rlujancreations.habitsapppro.authentication.data.repository
 
-import es.rlujancreations.habitsapppro.authentication.domain.repository.AuthenticationRepository
+import es.rlujancreations.authentication.domain.repository.AuthenticationRepository
 
 /**
  * Created by Raúl L.C. on 11/6/24.
  */
-class FakeAuthenticationRepository : AuthenticationRepository {
+class FakeAuthenticationRepository :
+    es.rlujancreations.authentication.domain.repository.AuthenticationRepository {
     var fakeError = false
     val fakeErrorMessage = "There was a server error!"
     override suspend fun login(email: String, password: String): Result<Unit> {
