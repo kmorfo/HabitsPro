@@ -1,4 +1,4 @@
-package es.rlujancreations.habitsapppro.settings.presentation
+package es.rlujancreations.settings.presentation
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -22,8 +22,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import es.rlujancreations.habitsapppro.R
-import es.rlujancreations.habitsapppro.settings.presentation.components.SettingsItem
+import es.rlujancreations.settings.presentation.components.SettingsItem
 
 /**
  * Created by Raúl L.C. on 30/5/24.

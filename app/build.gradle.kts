@@ -63,6 +63,7 @@ dependencies {
 //        }
 //    }
 
+    implementation(project(":settings:presentation"))
     implementation(project(":core:data"))
     implementation(project(":core:presentation"))
 

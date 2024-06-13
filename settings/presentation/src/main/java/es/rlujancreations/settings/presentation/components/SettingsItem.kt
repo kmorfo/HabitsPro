@@ -1,4 +1,4 @@
-package es.rlujancreations.habitsapppro.settings.presentation.components
+package es.rlujancreations.settings.presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

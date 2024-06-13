@@ -12,7 +12,7 @@ import es.rlujancreations.habitsapppro.authentication.presentation.signup.SignUp
 import es.rlujancreations.habitsapppro.home.presentarion.detail.DetailScreen
 import es.rlujancreations.habitsapppro.home.presentarion.home.HomeScreen
 import es.rlujancreations.habitsapppro.onboarding.presentation.OnboardingScreen
-import es.rlujancreations.habitsapppro.settings.presentation.SettingsScreen
+import es.rlujancreations.settings.presentation.SettingsScreen
 
 /**
  * Created by Raúl L.C. on 2/4/24.
@@ -107,7 +107,7 @@ fun NavigationHost(
             }
         }
         composable(NavigationRoute.Settings.route) {
-            SettingsScreen(onBack = { navHostController.popBackStack() },
+            es.rlujancreations.settings.presentation.SettingsScreen(onBack = { navHostController.popBackStack() },
                 onLogout = {
                     logout()
                     navHostController.navigate(NavigationRoute.Login.route) {
