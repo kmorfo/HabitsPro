@@ -18,7 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import es.rlujancreations.core.presentation.HabitCheckBox
-import es.rlujancreations.habitsapppro.home.domain.models.Habit
+import es.rlujancreations.home.domain.models.Habit
 import java.time.LocalDate
 
 /**
@@ -27,7 +27,7 @@ import java.time.LocalDate
 
 @Composable
 fun     HomeHabit(
-    habit: Habit,
+    habit: es.rlujancreations.home.domain.models.Habit,
     selectedDate: LocalDate,
     onCheckedChange: () -> Unit,
     onHabitClick: () -> Unit,

@@ -1,6 +1,6 @@
 package es.rlujancreations.habitsapppro.home.presentarion.home
 
-import es.rlujancreations.habitsapppro.home.domain.models.Habit
+import es.rlujancreations.home.domain.models.Habit
 import java.time.ZonedDateTime
 
 /**
@@ -8,5 +8,5 @@ import java.time.ZonedDateTime
  */
 sealed interface HomeEvent {
     data class ChangeDate(val date: ZonedDateTime) : HomeEvent
-    data class CompleteHabit(val habit: Habit) : HomeEvent
+    data class CompleteHabit(val habit: es.rlujancreations.home.domain.models.Habit) : HomeEvent
 }

@@ -26,13 +26,13 @@ import es.rlujancreations.habitsapppro.home.presentarion.detail.DetailViewModel
 import es.rlujancreations.habitsapppro.home.presentarion.home.HomeViewModel
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import es.rlujancreations.habitsapppro.home.domain.detail.usecases.DetailUseCases
-import es.rlujancreations.habitsapppro.home.domain.detail.usecases.GetHabitByIdUseCase
-import es.rlujancreations.habitsapppro.home.domain.detail.usecases.InsertHabitUseCase
-import es.rlujancreations.habitsapppro.home.domain.home.usecases.CompleteHabitUseCase
-import es.rlujancreations.habitsapppro.home.domain.home.usecases.GetAllHabitsForDateUseCase
-import es.rlujancreations.habitsapppro.home.domain.home.usecases.HomeUseCases
-import es.rlujancreations.habitsapppro.home.domain.home.usecases.SyncHabitUseCase
+import es.rlujancreations.home.domain.detail.usecases.DetailUseCases
+import es.rlujancreations.home.domain.detail.usecases.GetHabitByIdUseCase
+import es.rlujancreations.home.domain.detail.usecases.InsertHabitUseCase
+import es.rlujancreations.home.domain.home.usecases.CompleteHabitUseCase
+import es.rlujancreations.home.domain.home.usecases.GetAllHabitsForDateUseCase
+import es.rlujancreations.home.domain.home.usecases.HomeUseCases
+import es.rlujancreations.home.domain.home.usecases.SyncHabitUseCase
 import es.rlujancreations.habitsapppro.home.presentarion.detail.DetailScreen
 import es.rlujancreations.habitsapppro.home.presentarion.home.HomeScreen
 import es.rlujancreations.habitsapppro.navigation.NavigationRoute
@@ -68,16 +68,26 @@ class CreateHabitE2E {
 
         homeRepository = FakeHomeRepository()
 
-        val homeUseCases = HomeUseCases(
-            completeHabitUseCase = CompleteHabitUseCase(homeRepository),
-            getAllHabitsForDateUseCase = GetAllHabitsForDateUseCase(homeRepository),
-            syncHabitUseCase = SyncHabitUseCase(homeRepository),
+        val homeUseCases = es.rlujancreations.home.domain.home.usecases.HomeUseCases(
+            completeHabitUseCase = es.rlujancreations.home.domain.home.usecases.CompleteHabitUseCase(
+                homeRepository
+            ),
+            getAllHabitsForDateUseCase = es.rlujancreations.home.domain.home.usecases.GetAllHabitsForDateUseCase(
+                homeRepository
+            ),
+            syncHabitUseCase = es.rlujancreations.home.domain.home.usecases.SyncHabitUseCase(
+                homeRepository
+            ),
         )
         homeViewModel = HomeViewModel(SavedStateHandle(), homeUseCases)
 
-        val detailUseCases = DetailUseCases(
-            getHabitByIdUseCase = GetHabitByIdUseCase(homeRepository),
-            insertHabitUseCase = InsertHabitUseCase(homeRepository)
+        val detailUseCases = es.rlujancreations.home.domain.detail.usecases.DetailUseCases(
+            getHabitByIdUseCase = es.rlujancreations.home.domain.detail.usecases.GetHabitByIdUseCase(
+                homeRepository
+            ),
+            insertHabitUseCase = es.rlujancreations.home.domain.detail.usecases.InsertHabitUseCase(
+                homeRepository
+            )
         )
         detailViewModel = DetailViewModel(SavedStateHandle(), detailUseCases)
 

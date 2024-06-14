@@ -1,6 +1,6 @@
 package es.rlujancreations.habitsapppro.home.presentarion.home
 
-import es.rlujancreations.habitsapppro.home.domain.models.Habit
+import es.rlujancreations.home.domain.models.Habit
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.ZonedDateTime
@@ -12,5 +12,5 @@ data class HomeState(
     val userId: String = "",
     val currentDate: ZonedDateTime = ZonedDateTime.now(),
     val selectedDate: ZonedDateTime = ZonedDateTime.now(),
-    val habits: List<Habit> = emptyList()
+    val habits: List<es.rlujancreations.home.domain.models.Habit> = emptyList()
 )

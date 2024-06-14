@@ -1,20 +1,20 @@
 package es.rlujancreations.habitsapppro.home.data.repository
 
-import es.rlujancreations.habitsapppro.home.domain.models.Habit
-import es.rlujancreations.habitsapppro.home.domain.repository.HomeRepository
+import es.rlujancreations.home.domain.models.Habit
+import es.rlujancreations.home.domain.repository.HomeRepository
 import kotlinx.coroutines.flow.MutableSharedFlow
 import java.time.ZonedDateTime
 
 /**
  * Created by Raúl L.C. on 11/6/24.
  */
-class FakeHomeRepository : HomeRepository {
-    private var habits = emptyList<Habit>()
-    private val habitsFlow = MutableSharedFlow<List<Habit>>()
+class FakeHomeRepository : es.rlujancreations.home.domain.repository.HomeRepository {
+    private var habits = emptyList<es.rlujancreations.home.domain.models.Habit>()
+    private val habitsFlow = MutableSharedFlow<List<es.rlujancreations.home.domain.models.Habit>>()
 
     override fun getAllHabitsForSelectedDate(date: ZonedDateTime, userId: String) = habitsFlow
 
-    override suspend fun insertHabit(habit: Habit) {
+    override suspend fun insertHabit(habit: es.rlujancreations.home.domain.models.Habit) {
         habits = habits + habit
         habitsFlow.emit(habits)
     }

@@ -7,7 +7,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import es.rlujancreations.habitsapppro.home.domain.home.usecases.HomeUseCases
+import es.rlujancreations.home.domain.home.usecases.HomeUseCases
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -20,7 +20,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    private val homeUseCases: HomeUseCases
+    private val homeUseCases: es.rlujancreations.home.domain.home.usecases.HomeUseCases
 ) : ViewModel() {
     var state by mutableStateOf(HomeState())
         private set

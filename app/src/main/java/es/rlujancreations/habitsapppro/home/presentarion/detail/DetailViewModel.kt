@@ -7,8 +7,8 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import es.rlujancreations.habitsapppro.home.domain.detail.usecases.DetailUseCases
-import es.rlujancreations.habitsapppro.home.domain.models.Habit
+import es.rlujancreations.home.domain.detail.usecases.DetailUseCases
+import es.rlujancreations.home.domain.models.Habit
 import kotlinx.coroutines.launch
 import java.util.UUID
 import javax.inject.Inject
@@ -19,7 +19,7 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    private val detailUseCases: DetailUseCases
+    private val detailUseCases: es.rlujancreations.home.domain.detail.usecases.DetailUseCases
 ) : ViewModel() {
     var state by mutableStateOf(DetailState())
         private set
@@ -58,7 +58,7 @@ class DetailViewModel @Inject constructor(
 
             DetailEvent.HabitSave -> {
                 viewModelScope.launch {
-                    val habit = Habit(
+                    val habit = es.rlujancreations.home.domain.models.Habit(
                         id = state.id ?: UUID.randomUUID().toString(),
                         userId = state.userId,
                         name = state.habitName,
