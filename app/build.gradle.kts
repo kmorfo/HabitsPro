@@ -73,6 +73,7 @@ dependencies {
     implementation(project(":authentication:domain"))
     implementation(project(":authentication:presentation"))
     implementation(project(":home:domain"))
+    implementation(project(":home:presentation"))
     implementation(project(":home:data"))
 
     //it is necessary for minusDays and enable it in compileOptions
