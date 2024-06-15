@@ -1,25 +1,26 @@
 [versions]
-agp = "8.4.2"
-kotlin = "1.9.0"
-services = "4.4.1"
-composeVersion = "1.6.7"
+agp = "8.5.0"
+kotlin = "2.0.0"
+google-services = "4.4.2"
+composeVersion = "1.6.8"
 activityCompose = "1.9.0"
+composeBom = "2024.06.00"
 accompanistVersion = "0.28.0"
 coilCompose = "2.6.0"
 desugar_jdk_libs = "2.0.4"
 core-ktx = "1.13.1"
 espressoCoreVersion = "3.5.1"
 hiltNavigationCompose = "1.2.0"
-hiltVersion = "2.49"
-hiltCompiler = "1.2.0"
-junit = "1.1.5"
+dagger-hilt = "2.49"
+hilt-compiler = "1.2.0"
+junit = "4.13.2"
+junitVersion = "1.1.5"
 kotlinxCoroutinesTestVersion = "1.8.0"
-junitVersion = "4.13.2"
-lifecycleRuntimeKtx = "2.8.1"
+ksp = "2.0.0-1.0.21"
+lifecycleRuntimeKtx = "2.8.2"
 loggingInterceptorVersion = "5.0.0-alpha.2"
 mockkVersion = "1.13.4"
 navigationCompose = "2.7.7"
-material3 = "1.2.1"
 playServicesAuth = "21.2.0"
 retrofitVersion = "2.9.0"
 roomVersion = "2.6.1"
@@ -27,30 +28,43 @@ timePicker = "1.1.0"
 turbineVersion = "0.7.0"
 workmanagerVersion = "2.9.0"
 firebaseBom = "33.1.0"
+androidTools = "31.5.0"
+jetbrainsKotlinJvmVersion = "1.9.22"
+appcompatVersion = "1.7.0"
+materialVersion = "1.12.0"
+activityKtx = "1.9.0"
+
+
+# Project versions
+projectApplicationId = "es.rlujancreations.runnerapp"
+projectVersionName = "1.0"
+projectMinSdkVersion = "26"
+projectTargetSdkVersion = "34"
+projectCompileSdkVersion = "34"
+projectVersionCode = "1"
+
 minSdk = "26"
 compileSdk = "34"
 targetSdk = "34"
-jetbrainsKotlinJvmVersion = "1.9.0"
-appcompatVersion = "1.7.0"
-materialVersion = "1.12.0"
 
 [libraries]
-#accompanist-pager-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanistVersion" }
-#accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanistVersion" }
 accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanistVersion" }
-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
-androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espressoCoreVersion" }
-androidx-hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hiltCompiler" }
-androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
-androidx-hilt-work = { module = "androidx.hilt:hilt-work", version.ref = "hiltNavigationCompose" }
-androidx-junit = { module = "androidx.test.ext:junit", version.ref = "junit" }
-androidx-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCoreVersion" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomVersion" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomVersion" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomVersion" }
-androidx-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "composeVersion" }
-androidx-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "composeVersion" }
-androidx-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "composeVersion" }
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workmanagerVersion" }
 androidx-work-testing = { module = "androidx.work:work-testing", version.ref = "workmanagerVersion" }
 clock = { module = "com.maxkeppeler.sheets-compose-dialogs:clock", version.ref = "timePicker" }
@@ -59,32 +73,45 @@ converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.r
 core = { module = "com.maxkeppeler.sheets-compose-dialogs:core", version.ref = "timePicker" }
 desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
-hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "hiltVersion" }
-hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltVersion" }
-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltVersion" }
-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltVersion" }
+
+androidx-hilt-work = { module = "androidx.hilt:hilt-work", version.ref = "hiltNavigationCompose" }
+androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+dagger-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "dagger-hilt" }
+dagger-hilt-compiler  = { module = "com.google.dagger:hilt-compiler", version.ref = "dagger-hilt" }
+hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "dagger-hilt" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "dagger-hilt" }
+navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesTestVersion" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesTestVersion" }
-junit = { module = "junit:junit", version.ref = "junitVersion" }
 lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+
 logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "loggingInterceptorVersion" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockkVersion" }
-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofitVersion" }
 turbine = { module = "app.cash.turbine:turbine", version.ref = "turbineVersion" }
-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "composeVersion" }
-ui = { module = "androidx.compose.ui:ui", version.ref = "composeVersion" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx" }
 firebase-analytics-ktx = { group = "com.google.firebase", name = "firebase-analytics-ktx" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompatVersion" }
+
+
+# Gradle
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
+android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+room-gradlePlugin = { group = "androidx.room", name = "room-gradle-plugin", version.ref = "roomVersion" }
 material = { group = "com.google.android.material", name = "material", version.ref = "materialVersion" }
+
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-googleServices = { id = "com.google.gms.google-services", version.ref = "services" }
-androidHilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltVersion" }
+google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
+dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "dagger-hilt" }
 jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvmVersion" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+room = { id = "androidx.room", version.ref = "roomVersion" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
