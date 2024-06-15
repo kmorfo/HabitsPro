@@ -6,8 +6,13 @@ package es.rlujancreations.habitsapppro.home
 
 import android.util.Log
 import androidx.activity.compose.setContent
-import androidx.compose.ui.test.*
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performImeAction
+import androidx.compose.ui.test.performTextInput
 import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -20,12 +25,11 @@ import androidx.test.platform.app.InstrumentationRegistry
 import androidx.work.Configuration
 import androidx.work.testing.SynchronousExecutor
 import androidx.work.testing.WorkManagerTestInitHelper
-import es.rlujancreations.habitsapppro.MainActivity
-import es.rlujancreations.habitsapppro.home.data.repository.FakeHomeRepository
-import es.rlujancreations.home.presentation.detail.DetailViewModel
-import es.rlujancreations.home.presentation.home.HomeViewModel
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
+import es.rlujancreations.habitsapppro.MainActivity
+import es.rlujancreations.habitsapppro.home.data.repository.FakeHomeRepository
+import es.rlujancreations.habitsapppro.navigation.NavigationRoute
 import es.rlujancreations.home.domain.detail.usecases.DetailUseCases
 import es.rlujancreations.home.domain.detail.usecases.GetHabitByIdUseCase
 import es.rlujancreations.home.domain.detail.usecases.InsertHabitUseCase
@@ -34,8 +38,9 @@ import es.rlujancreations.home.domain.home.usecases.GetAllHabitsForDateUseCase
 import es.rlujancreations.home.domain.home.usecases.HomeUseCases
 import es.rlujancreations.home.domain.home.usecases.SyncHabitUseCase
 import es.rlujancreations.home.presentation.detail.DetailScreen
+import es.rlujancreations.home.presentation.detail.DetailViewModel
 import es.rlujancreations.home.presentation.home.HomeScreen
-import es.rlujancreations.habitsapppro.navigation.NavigationRoute
+import es.rlujancreations.home.presentation.home.HomeViewModel
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -68,24 +73,24 @@ class CreateHabitE2E {
 
         homeRepository = FakeHomeRepository()
 
-        val homeUseCases = es.rlujancreations.home.domain.home.usecases.HomeUseCases(
-            completeHabitUseCase = es.rlujancreations.home.domain.home.usecases.CompleteHabitUseCase(
+        val homeUseCases = HomeUseCases(
+            completeHabitUseCase = CompleteHabitUseCase(
                 homeRepository
             ),
-            getAllHabitsForDateUseCase = es.rlujancreations.home.domain.home.usecases.GetAllHabitsForDateUseCase(
+            getAllHabitsForDateUseCase = GetAllHabitsForDateUseCase(
                 homeRepository
             ),
-            syncHabitUseCase = es.rlujancreations.home.domain.home.usecases.SyncHabitUseCase(
+            syncHabitUseCase = SyncHabitUseCase(
                 homeRepository
             ),
         )
         homeViewModel = HomeViewModel(SavedStateHandle(), homeUseCases)
 
-        val detailUseCases = es.rlujancreations.home.domain.detail.usecases.DetailUseCases(
-            getHabitByIdUseCase = es.rlujancreations.home.domain.detail.usecases.GetHabitByIdUseCase(
+        val detailUseCases = DetailUseCases(
+            getHabitByIdUseCase = GetHabitByIdUseCase(
                 homeRepository
             ),
-            insertHabitUseCase = es.rlujancreations.home.domain.detail.usecases.InsertHabitUseCase(
+            insertHabitUseCase = InsertHabitUseCase(
                 homeRepository
             )
         )

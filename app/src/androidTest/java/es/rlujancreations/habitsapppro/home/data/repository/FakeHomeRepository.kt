@@ -8,13 +8,13 @@ import java.time.ZonedDateTime
 /**
  * Created by Raúl L.C. on 11/6/24.
  */
-class FakeHomeRepository : es.rlujancreations.home.domain.repository.HomeRepository {
-    private var habits = emptyList<es.rlujancreations.home.domain.models.Habit>()
-    private val habitsFlow = MutableSharedFlow<List<es.rlujancreations.home.domain.models.Habit>>()
+class FakeHomeRepository : HomeRepository {
+    private var habits = emptyList<Habit>()
+    private val habitsFlow = MutableSharedFlow<List<Habit>>()
 
     override fun getAllHabitsForSelectedDate(date: ZonedDateTime, userId: String) = habitsFlow
 
-    override suspend fun insertHabit(habit: es.rlujancreations.home.domain.models.Habit) {
+    override suspend fun insertHabit(habit: Habit) {
         habits = habits + habit
         habitsFlow.emit(habits)
     }
