@@ -40,11 +40,8 @@ android {
 }
 
 dependencies {
-
-
     implementation(project(":authentication:domain"))
     implementation(project(":core:presentation"))
-    implementation(project(":core:data"))
 
     implementation(libs.core.ktx)
     implementation(libs.androidx.appcompat)

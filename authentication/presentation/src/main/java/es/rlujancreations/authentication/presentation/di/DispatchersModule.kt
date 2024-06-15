@@ -1,4 +1,4 @@
-package es.rlujancreations.core.data.di
+package es.rlujancreations.authentication.presentation.di
 
 /**
  * Created by Raúl L.C. on 11/6/24.

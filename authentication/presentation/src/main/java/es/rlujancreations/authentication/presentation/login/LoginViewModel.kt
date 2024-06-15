@@ -6,10 +6,10 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import es.rlujancreations.authentication.domain.usecase.LoginUseCases
 import es.rlujancreations.authentication.presentation.R
-
+import es.rlujancreations.authentication.presentation.di.IoDispatcher
 import es.rlujancreations.authentication.presentation.util.PasswordErrorParser
-import es.rlujancreations.core.data.di.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -19,7 +19,7 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val loginUseCases: es.rlujancreations.authentication.domain.usecase.LoginUseCases,
+    private val loginUseCases: LoginUseCases,
     @IoDispatcher private val dispatcher: CoroutineDispatcher
 ) : ViewModel() {
 
