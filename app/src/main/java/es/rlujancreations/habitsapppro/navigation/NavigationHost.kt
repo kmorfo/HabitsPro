@@ -9,8 +9,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import es.rlujancreations.authentication.presentation.login.LoginScreen
 import es.rlujancreations.authentication.presentation.signup.SignUpScreen
-import es.rlujancreations.habitsapppro.home.presentarion.detail.DetailScreen
-import es.rlujancreations.habitsapppro.home.presentarion.home.HomeScreen
+import es.rlujancreations.home.presentation.detail.DetailScreen
+import es.rlujancreations.home.presentation.home.HomeScreen
 import es.rlujancreations.onboarding.presentation.OnboardingScreen
 
 /**

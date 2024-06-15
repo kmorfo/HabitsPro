@@ -1,4 +1,4 @@
-package es.rlujancreations.habitsapppro.home.presentarion.detail
+package es.rlujancreations.home.presentation.detail
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -19,7 +19,7 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    private val detailUseCases: es.rlujancreations.home.domain.detail.usecases.DetailUseCases
+    private val detailUseCases: DetailUseCases
 ) : ViewModel() {
     var state by mutableStateOf(DetailState())
         private set
@@ -58,7 +58,7 @@ class DetailViewModel @Inject constructor(
 
             DetailEvent.HabitSave -> {
                 viewModelScope.launch {
-                    val habit = es.rlujancreations.home.domain.models.Habit(
+                    val habit = Habit(
                         id = state.id ?: UUID.randomUUID().toString(),
                         userId = state.userId,
                         name = state.habitName,

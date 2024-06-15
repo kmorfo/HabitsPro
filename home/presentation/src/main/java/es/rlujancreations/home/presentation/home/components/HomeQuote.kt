@@ -1,4 +1,4 @@
-package es.rlujancreations.habitsapppro.home.presentarion.home.components
+package es.rlujancreations.home.presentation.home.components
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -25,7 +25,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import es.rlujancreations.habitsapppro.R
+import es.rlujancreations.home.presentation.R
 
 /**
  * Created by Raúl L.C. on 15/4/24.

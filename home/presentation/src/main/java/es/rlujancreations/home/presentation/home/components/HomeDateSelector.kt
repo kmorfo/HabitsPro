@@ -1,7 +1,6 @@
-package es.rlujancreations.habitsapppro.home.presentarion.home.components
+package es.rlujancreations.home.presentation.home.components
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment

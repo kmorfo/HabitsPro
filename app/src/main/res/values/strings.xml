@@ -1,30 +1,3 @@
 <resources>
     <string name="app_name">HabitsAppPro</string>
-
-    <!--    Home Screen-->
-    <string name="cdSettings">To Settings button</string>
-    <string name="quoteText">We first make our habits, and then our habits make us.</string>
-    <string name="quoteAuthor">Anonymous</string>
-    <string name="cdHomeQuote">Inspirational quote image</string>
-    <string name="habits">Habits</string>
-
-    <string name="cdCUncheckedCheckbox">Checkbox Unchecked</string>
-    <string name="cdFloatingAction">Add a new habit</string>
-    <string name="createHabit">Create Habit</string>
-    <string name="saveHabit">Save Habit</string>
-
-    <!--    Detail Screen-->
-    <string name="newHabitTitle">New Habit</string>
-    <string name="cdBack">Back to Home</string>
-    <string name="newHabitTextFieldPlaceHolder">Enter habit name</string>
-    <string name="cdNewHabitTextField">Enter habit name</string>
-    <string name="frequency">Frequency</string>
-
-    <string name="homeScreenTitle">Home</string>
-
-    <!--    Permissions dialog-->
-    <string name="permissionAccept">Accept</string>
-    <string name="permissionTitle">Permission Required</string>
-    <string name="permissionText">We need this mermission for the app to work correctly</string>
-
 </resources>

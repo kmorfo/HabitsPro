@@ -1,4 +1,4 @@
-package es.rlujancreations.habitsapppro.home.presentarion.detail
+package es.rlujancreations.home.presentation.detail
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -29,10 +29,10 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.maxkeppeler.sheets.clock.ClockDialog
 import com.maxkeppeler.sheets.clock.models.ClockConfig
 import com.maxkeppeler.sheets.clock.models.ClockSelection
-import es.rlujancreations.habitsapppro.R
 import es.rlujancreations.core.presentation.HabitTextfield
-import es.rlujancreations.habitsapppro.home.presentarion.detail.components.DetailFrequency
-import es.rlujancreations.habitsapppro.home.presentarion.detail.components.DetailReminder
+import es.rlujancreations.home.presentation.R
+import es.rlujancreations.home.presentation.detail.components.DetailFrequency
+import es.rlujancreations.home.presentation.detail.components.DetailReminder
 import java.time.LocalTime
 
 /**
@@ -96,7 +96,7 @@ fun DetailScreen(
                 .padding(it)
                 .padding(horizontal = 20.dp), verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            es.rlujancreations.core.presentation.HabitTextfield(
+            HabitTextfield(
                 value = state.habitName,
                 onValueChange = { viewModel.onEvent(DetailEvent.NameChange(it)) },
                 placeholder = stringResource(id = R.string.cdNewHabitTextField),

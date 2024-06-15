@@ -1,4 +1,4 @@
-package es.rlujancreations.habitsapppro.home.presentarion.home.components
+package es.rlujancreations.home.presentation.home.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -17,7 +17,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import es.rlujancreations.core.presentation.HabitCheckBox
 import es.rlujancreations.home.domain.models.Habit
 import java.time.LocalDate
 
@@ -27,7 +26,7 @@ import java.time.LocalDate
 
 @Composable
 fun     HomeHabit(
-    habit: es.rlujancreations.home.domain.models.Habit,
+    habit: Habit,
     selectedDate: LocalDate,
     onCheckedChange: () -> Unit,
     onHabitClick: () -> Unit,

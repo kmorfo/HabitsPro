@@ -1,14 +1,16 @@
-package es.rlujancreations.habitsapppro.home.presentarion.home.components
+package es.rlujancreations.home.presentation.home.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import com.google.accompanist.permissions.*
-import es.rlujancreations.habitsapppro.R
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import com.google.accompanist.permissions.rememberPermissionState
+import com.google.accompanist.permissions.shouldShowRationale
+import es.rlujancreations.home.presentation.R
 
 
 /**

@@ -1,4 +1,4 @@
-package es.rlujancreations.habitsapppro.home.presentarion.detail.components
+package es.rlujancreations.home.presentation.detail.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -43,7 +43,7 @@ fun DetailFrequencyDate(
             color = MaterialTheme.colorScheme.tertiary.copy(alpha = 0.5f)
         )
         Spacer(modifier = Modifier.height(8.dp))
-        es.rlujancreations.core.presentation.HabitCheckBox(
+        HabitCheckBox(
             isChecked = isChecked,
             onCheckedChange = onCheckedChange,
             modifier = Modifier.semantics { contentDescription = date.name })

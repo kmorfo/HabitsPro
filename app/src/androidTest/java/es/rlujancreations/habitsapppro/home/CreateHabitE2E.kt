@@ -22,8 +22,8 @@ import androidx.work.testing.SynchronousExecutor
 import androidx.work.testing.WorkManagerTestInitHelper
 import es.rlujancreations.habitsapppro.MainActivity
 import es.rlujancreations.habitsapppro.home.data.repository.FakeHomeRepository
-import es.rlujancreations.habitsapppro.home.presentarion.detail.DetailViewModel
-import es.rlujancreations.habitsapppro.home.presentarion.home.HomeViewModel
+import es.rlujancreations.home.presentation.detail.DetailViewModel
+import es.rlujancreations.home.presentation.home.HomeViewModel
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import es.rlujancreations.home.domain.detail.usecases.DetailUseCases
@@ -33,8 +33,8 @@ import es.rlujancreations.home.domain.home.usecases.CompleteHabitUseCase
 import es.rlujancreations.home.domain.home.usecases.GetAllHabitsForDateUseCase
 import es.rlujancreations.home.domain.home.usecases.HomeUseCases
 import es.rlujancreations.home.domain.home.usecases.SyncHabitUseCase
-import es.rlujancreations.habitsapppro.home.presentarion.detail.DetailScreen
-import es.rlujancreations.habitsapppro.home.presentarion.home.HomeScreen
+import es.rlujancreations.home.presentation.detail.DetailScreen
+import es.rlujancreations.home.presentation.home.HomeScreen
 import es.rlujancreations.habitsapppro.navigation.NavigationRoute
 import org.junit.Before
 import org.junit.Rule

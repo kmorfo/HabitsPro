@@ -1,4 +1,4 @@
-package es.rlujancreations.habitsapppro.home.presentarion.detail
+package es.rlujancreations.home.presentation.detail
 
 import java.time.DayOfWeek
 import java.time.LocalDate

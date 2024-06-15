@@ -1,4 +1,4 @@
-package es.rlujancreations.habitsapppro.home.presentarion.home
+package es.rlujancreations.home.presentation.home
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -20,7 +20,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    private val homeUseCases: es.rlujancreations.home.domain.home.usecases.HomeUseCases
+    private val homeUseCases: HomeUseCases
 ) : ViewModel() {
     var state by mutableStateOf(HomeState())
         private set

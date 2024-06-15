@@ -1,10 +1,9 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package es.rlujancreations.habitsapppro.home.presentarion.home
+package es.rlujancreations.home.presentation.home
 
 import android.Manifest
 import android.os.Build
-import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -34,11 +33,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import es.rlujancreations.habitsapppro.R
-import es.rlujancreations.habitsapppro.home.presentarion.home.components.HomeAskPermission
-import es.rlujancreations.habitsapppro.home.presentarion.home.components.HomeDateSelector
-import es.rlujancreations.habitsapppro.home.presentarion.home.components.HomeHabit
-import es.rlujancreations.habitsapppro.home.presentarion.home.components.HomeQuote
+import es.rlujancreations.home.presentation.R
+import es.rlujancreations.home.presentation.home.components.HomeAskPermission
+import es.rlujancreations.home.presentation.home.components.HomeDateSelector
+import es.rlujancreations.home.presentation.home.components.HomeHabit
+import es.rlujancreations.home.presentation.home.components.HomeQuote
 
 /**
  * Created by Raúl L.C. on 15/4/24.
