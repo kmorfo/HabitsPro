@@ -13,5 +13,5 @@ import es.rlujancreations.home.data.local.typeconverter.HomeTypeConverter
 @Database(entities = [HabitEntity::class, HabitSyncEntity::class], version = 1, exportSchema = true)
 @TypeConverters(HomeTypeConverter::class)
 abstract class HomeDatabase : RoomDatabase() {
-    abstract val dao: HomeDao
+    abstract fun getDao(): HomeDao
 }

@@ -68,12 +68,18 @@ object HomeModule {
 
     @Singleton
     @Provides
-    fun provideHabitDao(@ApplicationContext context: Context): HomeDao {
+    fun provideDatabase(@ApplicationContext context: Context): HomeDatabase {
         return Room.databaseBuilder(
             context,
             HomeDatabase::class.java,
             "habits_db"
-        ).addTypeConverter(HomeTypeConverter()).build().dao
+        ).addTypeConverter(HomeTypeConverter()).build()
+    }
+
+    @Singleton
+    @Provides
+    fun provideHabitDao(database: HomeDatabase): HomeDao {
+        return database.getDao()
     }
 
     @Singleton

@@ -32,5 +32,9 @@ gradlePlugin {
             id = "habitsapppro.android.feature.ui"
             implementationClass = "AndroidFeatureUiConventionPlugin"
         }
+        register("androidRoomConventionPlugin") {
+            id = "habitsapppro.android.room"
+            implementationClass = "AndroidRoomConventionPlugin"
+        }
     }
 }

@@ -78,9 +78,9 @@ dependencies {
     implementation(libs.accompanist.permissions)
 
     // Room
-    implementation(libs.androidx.room.ktx)
-    ksp(libs.androidx.room.compiler)
-    implementation(libs.androidx.room.runtime)
+//    implementation(libs.androidx.room.ktx)
+//    ksp(libs.androidx.room.compiler)
+//    implementation(libs.androidx.room.runtime)
 
     // Retrofit
     implementation(libs.retrofit)

@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.habitsapppro.android.library)
+    alias(libs.plugins.habitsapppro.android.room)
     alias(libs.plugins.ksp)
     alias(libs.plugins.dagger.hilt)
 }
@@ -10,6 +11,7 @@ android {
 
 dependencies {
     implementation(project(":home:domain"))
+    implementation(libs.room.ktx)
 
     //Get day of week api 25 or lower
     coreLibraryDesugaring(libs.desugar.jdk.libs)
@@ -25,11 +27,6 @@ dependencies {
     // WorkManager
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.androidx.hilt.work)
-
-    // Room
-    implementation(libs.androidx.room.ktx)
-    ksp(libs.androidx.room.compiler)
-    implementation(libs.androidx.room.runtime)
 
     // Retrofit
     implementation(libs.retrofit)
