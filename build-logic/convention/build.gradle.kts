@@ -36,5 +36,9 @@ gradlePlugin {
             id = "habitsapppro.android.room"
             implementationClass = "AndroidRoomConventionPlugin"
         }
+        register("jvmLibrary") {
+            id = "habitsapppro.jvm.library"
+            implementationClass = "JvmLibraryConventionPlugin"
+        }
     }
 }

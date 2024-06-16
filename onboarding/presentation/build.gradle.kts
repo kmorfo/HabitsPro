@@ -9,7 +9,6 @@ android {
 }
 
 dependencies {
-
     implementation(project(":onboarding:domain"))
 
     // Dagger-Hilt
@@ -20,5 +19,4 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.navigation.compose)
     ksp(libs.hilt.android.compiler)
-
 }

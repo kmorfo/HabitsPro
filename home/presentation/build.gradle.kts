@@ -26,5 +26,4 @@ dependencies {
     // Compose Dialog
     implementation(libs.core)
     implementation(libs.clock)
-
 }

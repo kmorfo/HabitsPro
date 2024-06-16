@@ -134,6 +134,7 @@ habitsapppro-android-library = { id = "habitsapppro.android.library", version = 
 habitsapppro-android-library-compose = { id = "habitsapppro.android.library.compose", version = "unspecified" }
 habitsapppro-android-feature-ui = { id = "habitsapppro.android.feature.ui", version = "unspecified" }
 habitsapppro-android-room = { id = "habitsapppro.android.room", version = "unspecified" }
+habitsapppro-jvm-library = { id = "habitsapppro.jvm.library", version = "unspecified" }
 
 [bundles]
 compose = [
