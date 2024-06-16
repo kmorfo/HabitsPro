@@ -129,3 +129,4 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 #My plugins for this project
 habitsapppro-android-application = { id = "habitsapppro.android.application", version = "unspecified" }
 habitsapppro-android-application-compose = { id = "habitsapppro.android.application.compose", version = "unspecified" }
+habitsapppro-android-library = { id = "habitsapppro.android.library", version = "unspecified" }

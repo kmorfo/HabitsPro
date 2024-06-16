@@ -20,5 +20,9 @@ gradlePlugin {
             id = "habitsapppro.android.application.compose"
             implementationClass = "AndroidApplicationComposeConventionPlugin"
         }
+        register("androidLibrary") {
+            id = "habitsapppro.android.library"
+            implementationClass = "AndroidLibraryConventionPlugin"
+        }
     }
 }
