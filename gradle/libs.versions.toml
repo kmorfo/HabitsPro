@@ -28,7 +28,6 @@ workmanagerVersion = "2.9.0"
 firebaseBom = "33.1.0"
 androidTools = "31.5.0"
 jetbrainsKotlinJvmVersion = "1.9.22"
-materialVersion = "1.12.0"
 
 # Project versions
 projectApplicationId = "es.rlujancreations.habitsapppro"
@@ -37,10 +36,6 @@ projectMinSdkVersion = "26"
 projectTargetSdkVersion = "34"
 projectCompileSdkVersion = "34"
 projectVersionCode = "1"
-
-minSdk = "26"
-compileSdk = "34"
-targetSdk = "34"
 
 [libraries]
 # Accompanist
@@ -66,6 +61,7 @@ androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graph
 androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 
 # AndroidX Room
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
@@ -97,7 +93,6 @@ dagger-hilt-android = { module = "com.google.dagger:hilt-android", version.ref =
 dagger-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "dagger-hilt" }
 hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "dagger-hilt" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "dagger-hilt" }
-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesTestVersion" }
 lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
@@ -135,6 +130,8 @@ habitsapppro-android-library-compose = { id = "habitsapppro.android.library.comp
 habitsapppro-android-feature-ui = { id = "habitsapppro.android.feature.ui", version = "unspecified" }
 habitsapppro-android-room = { id = "habitsapppro.android.room", version = "unspecified" }
 habitsapppro-jvm-library = { id = "habitsapppro.jvm.library", version = "unspecified" }
+habitsapppro-android-hilt = { id = "habitsapppro.android.hilt", version = "unspecified" }
+habitsapppro-android-hilt-navigation = { id = "habitsapppro.android.hilt.navigation", version = "unspecified" }
 
 [bundles]
 compose = [
@@ -145,6 +142,7 @@ compose = [
     "androidx-compose-ui",
     "androidx-compose-ui-graphics",
     "androidx-compose-ui-tooling-preview",
+    "androidx-navigation-compose"
 ]
 compose-debug = [
     "androidx-compose-ui-tooling",

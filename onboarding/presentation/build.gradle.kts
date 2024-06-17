@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.habitsapppro.android.feature.ui)
-    alias(libs.plugins.ksp)
-    alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.habitsapppro.android.hilt.navigation)
 }
 
 android {
@@ -10,13 +9,4 @@ android {
 
 dependencies {
     implementation(project(":onboarding:domain"))
-
-    // Dagger-Hilt
-    implementation(libs.dagger.hilt.android)
-    ksp(libs.dagger.hilt.compiler)
-
-    // Hilt
-    implementation(libs.androidx.hilt.navigation.compose)
-    implementation(libs.navigation.compose)
-    ksp(libs.hilt.android.compiler)
 }

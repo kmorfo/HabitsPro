@@ -1,6 +1,6 @@
 plugins {
     alias(libs.plugins.habitsapppro.android.library)
-    alias(libs.plugins.ksp)
+    alias(libs.plugins.habitsapppro.android.hilt)
 }
 
 android {
@@ -9,14 +9,6 @@ android {
 
 dependencies {
     implementation(project(":authentication:domain"))
-
-    // Dagger-Hilt
-    implementation(libs.dagger.hilt.android)
-    ksp(libs.dagger.hilt.compiler)
-
-    // Hilt
-    implementation(libs.navigation.compose)
-    ksp(libs.hilt.android.compiler)
 
     // Firebase
     implementation(platform(libs.firebase.bom))

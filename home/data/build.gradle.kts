@@ -1,8 +1,7 @@
 plugins {
     alias(libs.plugins.habitsapppro.android.library)
     alias(libs.plugins.habitsapppro.android.room)
-    alias(libs.plugins.ksp)
-    alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.habitsapppro.android.hilt)
 }
 
 android {
@@ -14,15 +13,7 @@ dependencies {
     implementation(libs.room.ktx)
 
     //Get day of week api 25 or lower
-    coreLibraryDesugaring(libs.desugar.jdk.libs)
-
-    // Dagger-Hilt
-    implementation(libs.dagger.hilt.android)
-    ksp(libs.dagger.hilt.compiler)
-
-    // Hilt
-    implementation(libs.navigation.compose)
-    ksp(libs.hilt.android.compiler)
+//    coreLibraryDesugaring(libs.desugar.jdk.libs)
 
     // WorkManager
     implementation(libs.androidx.work.runtime.ktx)

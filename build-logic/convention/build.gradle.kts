@@ -40,5 +40,13 @@ gradlePlugin {
             id = "habitsapppro.jvm.library"
             implementationClass = "JvmLibraryConventionPlugin"
         }
+        register("androidHiltConventionPlugin") {
+            id = "habitsapppro.android.hilt"
+            implementationClass = "AndroidHiltConventionPlugin"
+        }
+        register("androidHiltNavigationConventionPlugin") {
+            id = "habitsapppro.android.hilt.navigation"
+            implementationClass = "AndroidHiltNavigationConventionPlugin"
+        }
     }
 }
