@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.google.services)
     alias(libs.plugins.habitsapppro.android.application.compose)
     alias(libs.plugins.habitsapppro.android.hilt.navigation)
+    alias(libs.plugins.habitsapppro.android.retrofit)
 }
 
 android {
@@ -57,11 +58,6 @@ dependencies {
 
     // Permissions
     implementation(libs.accompanist.permissions)
-
-    // Retrofit
-    implementation(libs.retrofit)
-    implementation(libs.converter.moshi)
-    implementation(libs.logging.interceptor)
 
     // WorkManager
     implementation(libs.androidx.work.runtime.ktx)

@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.habitsapppro.android.library)
     alias(libs.plugins.habitsapppro.android.room)
     alias(libs.plugins.habitsapppro.android.hilt)
+    alias(libs.plugins.habitsapppro.android.retrofit)
 }
 
 android {
@@ -18,11 +19,6 @@ dependencies {
     // WorkManager
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.androidx.hilt.work)
-
-    // Retrofit
-    implementation(libs.retrofit)
-    implementation(libs.converter.moshi)
-    implementation(libs.logging.interceptor)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

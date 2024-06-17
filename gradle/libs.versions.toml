@@ -132,6 +132,7 @@ habitsapppro-android-room = { id = "habitsapppro.android.room", version = "unspe
 habitsapppro-jvm-library = { id = "habitsapppro.jvm.library", version = "unspecified" }
 habitsapppro-android-hilt = { id = "habitsapppro.android.hilt", version = "unspecified" }
 habitsapppro-android-hilt-navigation = { id = "habitsapppro.android.hilt.navigation", version = "unspecified" }
+habitsapppro-android-retrofit = { id = "habitsapppro.android.retrofit", version = "unspecified" }
 
 [bundles]
 compose = [

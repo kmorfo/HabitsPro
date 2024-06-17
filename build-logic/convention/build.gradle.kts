@@ -36,6 +36,10 @@ gradlePlugin {
             id = "habitsapppro.android.room"
             implementationClass = "AndroidRoomConventionPlugin"
         }
+        register("androidRetrofitConventionPlugin") {
+            id = "habitsapppro.android.retrofit"
+            implementationClass = "AndroidRetrofitConventionPlugin"
+        }
         register("jvmLibrary") {
             id = "habitsapppro.jvm.library"
             implementationClass = "JvmLibraryConventionPlugin"
