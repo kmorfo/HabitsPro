@@ -6,7 +6,7 @@ import org.gradle.kotlin.dsl.dependencies
 /**
  * Created by Raúl L.C. on 17/6/24.
  */
-class AndroidRetrofitConventionPlugin : Plugin<Project> {
+class JvmRetrofitConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             dependencies {

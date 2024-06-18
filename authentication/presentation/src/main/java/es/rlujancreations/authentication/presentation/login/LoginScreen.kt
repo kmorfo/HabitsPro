@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import es.rlujancreations.authentication.presentation.R
 import es.rlujancreations.authentication.presentation.login.components.LoginForm
+import es.rlujancreations.core.presentation.HabitTitle
 
 
 /**
@@ -74,7 +75,7 @@ fun LoginScreen(
         ) {
             Spacer(modifier = Modifier)
             Spacer(modifier = Modifier)
-            es.rlujancreations.core.presentation.HabitTitle(
+            HabitTitle(
                 title = stringResource(id = R.string.loginTitle),
                 modifier = Modifier.padding(horizontal = 32.dp)
             )

@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.google.services)
     alias(libs.plugins.habitsapppro.android.application.compose)
     alias(libs.plugins.habitsapppro.android.hilt.navigation)
-    alias(libs.plugins.habitsapppro.android.retrofit)
+    alias(libs.plugins.habitsapppro.jvm.retrofit)
 }
 
 android {

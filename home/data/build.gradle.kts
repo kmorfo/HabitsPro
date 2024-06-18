@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.habitsapppro.android.library)
     alias(libs.plugins.habitsapppro.android.room)
     alias(libs.plugins.habitsapppro.android.hilt)
-    alias(libs.plugins.habitsapppro.android.retrofit)
+    alias(libs.plugins.habitsapppro.jvm.retrofit)
 }
 
 android {

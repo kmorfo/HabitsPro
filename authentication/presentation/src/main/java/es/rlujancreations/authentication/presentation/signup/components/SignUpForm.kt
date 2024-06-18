@@ -1,5 +1,6 @@
 package es.rlujancreations.authentication.presentation.signup.components
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -30,7 +31,10 @@ import androidx.compose.ui.unit.dp
 import es.rlujancreations.authentication.presentation.R
 import es.rlujancreations.authentication.presentation.signup.SignUpEvent
 import es.rlujancreations.authentication.presentation.signup.SignUpState
-
+import es.rlujancreations.core.presentation.HabitButton
+import es.rlujancreations.core.presentation.HabitPasswordTextfield
+import es.rlujancreations.core.presentation.HabitTextfield
+import es.rlujancreations.core.presentation.HabitTitle
 
 /**
  * Created by Raúl L.C. on 14/4/24.
@@ -42,11 +46,15 @@ fun SignUpForm(
     modifier: Modifier = Modifier
 ) {
     val focusManager = LocalFocusManager.current
-
-    Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
-        es.rlujancreations.core.presentation.HabitTitle(title = stringResource(id = R.string.signUpTitle))
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.SpaceBetween
+    ) {
+        Spacer(modifier = Modifier.weight(1f))
+        HabitTitle(title = stringResource(id = R.string.signUpTitle))
         Spacer(modifier = Modifier.height(32.dp))
-        es.rlujancreations.core.presentation.HabitTextfield(
+        HabitTextfield(
             value = state.email,
             onValueChange = { onEvent(SignUpEvent.EmailChange(it)) },
             placeholder = stringResource(id = R.string.valueEmail),
@@ -69,7 +77,7 @@ fun SignUpForm(
             backgroundColor = Color.White
         )
         Spacer(modifier = Modifier.height(8.dp))
-        es.rlujancreations.core.presentation.HabitPasswordTextfield(
+        HabitPasswordTextfield(
             value = state.password,
             onValueChange = { onEvent(SignUpEvent.PasswordChange(it)) },
             contentDescription = stringResource(id = R.string.cdPassword),
@@ -91,7 +99,7 @@ fun SignUpForm(
             })
         )
         Spacer(modifier = Modifier.height(16.dp))
-        es.rlujancreations.core.presentation.HabitButton(
+        HabitButton(
             text = stringResource(id = R.string.createAccountBtn),
             modifier = Modifier
                 .fillMaxWidth()
